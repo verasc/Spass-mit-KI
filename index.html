@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Vera Schiecke – Diplom-Psychologin & KI-Trainerin | spassmitki.de</title>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 <style>
   :root {
     --blush: #FFF0F3;
@@ -602,7 +604,7 @@
     <li><a href="#angebot">Angebot</a></li>
     <li><a href="#ansatz">Ansatz</a></li>
     <li><a href="#ueber">Über mich</a></li>
-    <li><a href="#kontakt" class="nav-cta">Gespräch buchen</a></li>
+    <li><a href="#kontakt" class="nav-cta" onclick="openCalendar(); return false;">Gespräch buchen</a></li>
   </ul>
 </nav>
 
@@ -615,7 +617,7 @@
     <h1 class="hero-claim">Dein Team ignoriert KI.<br><span>Ich ändere das.</span></h1>
     <p class="hero-body">Als Psychologin verstehe ich, warum Menschen Veränderung vermeiden – und wie man sie trotzdem für KI begeistert. Kein Tool-Overload. Sondern echte Adoption.</p>
     <div class="hero-buttons">
-      <a href="#kontakt" class="btn btn-primary">Erstgespräch vereinbaren →</a>
+      <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
       <a href="#angebot" class="btn btn-secondary">Mein Angebot</a>
     </div>
   </div>
@@ -725,9 +727,28 @@
     <div class="section-eyebrow">Bereit?</div>
     <h2 class="cta-title">KI-Neugier ist <span>trainierbar.</span><br>Lass uns starten.</h2>
     <p class="cta-body">In einem kostenlosen Erstgespräch klären wir, wo dein Team steht – und was der nächste sinnvolle Schritt wäre. Kein Pitch, kein Druck.</p>
-    <a href="#" class="btn btn-primary" style="font-size:17px;padding:16px 36px;">Erstgespräch vereinbaren →</a>
+    <div id="calendar-button"></div>
   </div>
 </section>
+
+<script>
+var calendarUrl = 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2jAiQ88dDRSwqVDx2zGaKfhDdxKqpQ37SkfeCAR8G8XbUQBCS9p27a9k3nJ59GGdK61Cq5FGFF?gv=true';
+
+window.addEventListener('load', function() {
+  if (typeof calendar !== 'undefined') {
+    calendar.schedulingButton.load({
+      url: calendarUrl,
+      color: '#4A4FE0',
+      label: 'Erstgespräch vereinbaren',
+      target: document.getElementById('calendar-button'),
+    });
+  }
+});
+
+function openCalendar() {
+  window.open(calendarUrl, '_blank', 'width=600,height=700');
+}
+</script>
 
 <!-- ══ FOOTER ══ -->
 <footer>
@@ -748,7 +769,7 @@
         <div class="footer-col-title">Kontakt</div>
         <a href="#">LinkedIn</a>
         <a href="#">E-Mail</a>
-        <a href="#">Gespräch buchen</a>
+        <a href="#" onclick="openCalendar(); return false;">Gespräch buchen</a>
       </div>
     </div>
   </div>
