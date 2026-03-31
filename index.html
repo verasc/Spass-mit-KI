@@ -165,36 +165,32 @@
     border-radius: 24px;
     box-shadow: 0 12px 40px rgba(13,2,33,0.1);
   }
-  .hero-eyebrow {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 20px;
-    letter-spacing: -0.5px;
-    color: var(--midnight);
-    margin-bottom: 4px;
-  }
-  .hero-role {
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: var(--muted);
-    margin-bottom: 40px;
-  }
-  .hero-name {
-    display: none;
-  }
-  .hero-subtitle {
-    display: none;
-  }
   .hero-claim {
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
-    font-size: 64px;
+    font-size: 72px;
     letter-spacing: -0.5px;
-    line-height: 1.08;
+    line-height: 1.05;
     color: var(--midnight);
     max-width: 700px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
+  }
+  .hero-byline {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .hero-byline .separator {
+    width: 24px;
+    height: 2px;
+    background: var(--maj-light);
+    opacity: 0.4;
+    display: inline-block;
   }
   .hero-claim span { color: var(--maj-light); }
   .hero-body {
@@ -651,10 +647,8 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hashtag-pill">#SpaßMitKI</div>
-      <div class="hero-eyebrow">Vera Schiecke</div>
-      <div class="hero-role">Diplom-Psychologin und KI-Trainerin</div>
-      <h1 class="hero-claim">Euer Team ignoriert KI.<br><span>Ich ändere das.</span></h1>
+      <h1 class="hero-claim">Euer Team<br>ignoriert KI.<br><span>Ich ändere das.</span></h1>
+      <div class="hero-byline"><span class="separator"></span> Vera Schiecke · KI-Trainerin und Diplom-Psychologin</div>
       <p class="hero-body">Als Psychologin verstehe ich, warum Menschen Veränderung vermeiden – und wie man sie trotzdem für KI begeistert. Kein Tool-Overload. Sondern echte Adoption.</p>
       <div class="hero-buttons">
         <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
@@ -693,7 +687,7 @@
     <div class="problem-left">
       <div class="section-eyebrow">Das eigentliche Problem</div>
       <h2 class="section-title">KI-Trainings scheitern <span>zweimal.</span></h2>
-      <p class="section-body">Erstens am Mindset: Teams haben Angst vor Veränderung, nicht vor Tools. Zweitens an der Tiefe: Oberflächliche Demos erzeugen kein echtes Können. Du brauchst jemanden, der beides löst.</p>
+      <p class="section-body">Erstens am Mindset: Teams haben Angst vor Veränderung, nicht vor Tools. Zweitens an der Tiefe: Oberflächliche Demos erzeugen kein echtes Können. Das Ergebnis: viel Aufwand, wenig Wirkung.</p>
       <ul class="check-list">
         <li>Mitarbeitende lächeln im Training und arbeiten danach wie vorher</li>
         <li>Führungskräfte fordern "KI-Nutzung" ohne die Widerstände zu verstehen</li>
@@ -703,7 +697,7 @@
     </div>
     <div class="problem-right">
       <div class="quote-mark">"</div>
-      <div class="quote-text">Ich entferne die <span>unsichtbaren Barrieren</span> zwischen Menschen und ihrem Potenzial. Das habe ich 10 Jahre mit Kindern gemacht. Jetzt mache ich es mit Teams und KI.</div>
+      <div class="quote-text">Gute KI-Trainings brauchen drei Dinge: <span>Abholen statt überrollen.</span> Widerstände ernst nehmen statt wegmoderieren. Und Know-how, das am Montag noch da ist.</div>
       <div class="quote-author">— Vera Schiecke</div>
     </div>
   </div>
@@ -771,8 +765,8 @@
 <section class="cta" id="kontakt">
   <div class="cta-inner">
     <div class="section-eyebrow">Bereit?</div>
-    <h2 class="cta-title">KI-Neugier ist <span>trainierbar.</span><br>Lass uns starten.</h2>
-    <p class="cta-body">In einem kostenlosen Erstgespräch klären wir, wo dein Team steht – und was der nächste sinnvolle Schritt wäre. Kein Pitch, kein Druck.</p>
+    <h2 class="cta-title">KI-Neugier ist <span>trainierbar.</span><br>Lasst uns starten.</h2>
+    <p class="cta-body">In einem kostenlosen Erstgespräch klären wir, wo euer Team steht – und was der nächste sinnvolle Schritt wäre. Kein Pitch, kein Druck.</p>
     <div id="calendar-button"></div>
   </div>
 </section>
