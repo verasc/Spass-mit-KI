@@ -128,6 +128,42 @@
     width: 100%;
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+  }
+  .hero-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 0;
+  }
+  .photo-accent {
+    position: relative;
+    width: 380px;
+    height: 460px;
+  }
+  .photo-accent::before {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: -16px;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(74,79,224,0.15), rgba(134,120,255,0.08));
+    z-index: 0;
+  }
+  .photo-accent img {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    border-radius: 24px;
+    box-shadow: 0 12px 40px rgba(13,2,33,0.1);
   }
   .hero-eyebrow {
     font-family: 'Outfit', sans-serif;
@@ -578,7 +614,10 @@
     .hero { padding: 120px 24px 80px; }
     .hero-name { display: none; }
     .hero-subtitle { display: none; }
+    .hero-inner { grid-template-columns: 1fr; }
     .hero-claim { font-size: 36px; }
+    .hero-photo { order: -1; }
+    .photo-accent { width: 260px; height: 320px; }
     .stats-inner { grid-template-columns: 1fr; gap: 24px; }
     .problem { padding: 64px 24px; }
     .problem-inner { grid-template-columns: 1fr; gap: 40px; }
@@ -611,14 +650,21 @@
 <!-- ══ HERO ══ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hashtag-pill">#SpaßMitKI</div>
-    <div class="hero-eyebrow">Vera Schiecke</div>
-    <div class="hero-role">Diplom-Psychologin und KI-Trainerin</div>
-    <h1 class="hero-claim">Dein Team ignoriert KI.<br><span>Ich ändere das.</span></h1>
-    <p class="hero-body">Als Psychologin verstehe ich, warum Menschen Veränderung vermeiden – und wie man sie trotzdem für KI begeistert. Kein Tool-Overload. Sondern echte Adoption.</p>
-    <div class="hero-buttons">
-      <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
-      <a href="#angebot" class="btn btn-secondary">Mein Angebot</a>
+    <div class="hero-text">
+      <div class="hashtag-pill">#SpaßMitKI</div>
+      <div class="hero-eyebrow">Vera Schiecke</div>
+      <div class="hero-role">Diplom-Psychologin und KI-Trainerin</div>
+      <h1 class="hero-claim">Dein Team ignoriert KI.<br><span>Ich ändere das.</span></h1>
+      <p class="hero-body">Als Psychologin verstehe ich, warum Menschen Veränderung vermeiden – und wie man sie trotzdem für KI begeistert. Kein Tool-Overload. Sondern echte Adoption.</p>
+      <div class="hero-buttons">
+        <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
+        <a href="#angebot" class="btn btn-secondary">Mein Angebot</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-accent">
+        <img src="vera-foto.jpg" alt="Vera Schiecke">
+      </div>
     </div>
   </div>
 </section>
