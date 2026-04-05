@@ -317,133 +317,17 @@
     border-bottom: 1px solid rgba(13,2,33,0.06);
   }
   .check-list li::before {
-    content: '→';
+    content: '✗';
     position: absolute;
     left: 0;
     color: var(--maj-light);
     font-weight: 700;
   }
-  .problem-right {
-    background: var(--blush);
-    border-radius: 24px;
-    padding: 48px 40px;
-    position: relative;
-  }
-  .problem-right::before {
-    content: '';
-    position: absolute;
-    bottom: -16px;
-    left: 48px;
-    width: 28px;
-    height: 28px;
-    background: var(--blush);
-    clip-path: polygon(0 0, 100% 0, 0 100%);
-    z-index: 0;
-  }
-  .quote-mark {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 80px;
-    color: var(--maj-light);
-    opacity: 0.15;
-    line-height: 0.5;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-  }
-  .quote-text {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    letter-spacing: -0.5px;
-    line-height: 1.35;
-    color: var(--midnight);
-    position: relative;
-    z-index: 1;
-    margin-bottom: 24px;
-  }
-  .quote-text span { color: var(--maj-light); }
-  .quote-list {
-    position: relative;
-    z-index: 1;
-    list-style: none;
-    counter-reset: quote-counter;
-    padding: 0;
-    margin: 0 0 24px 0;
-  }
-  .quote-list li {
-    counter-increment: quote-counter;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--midnight);
-    padding-left: 32px;
-    margin-bottom: 12px;
-    position: relative;
-    line-height: 1.4;
-  }
-  .quote-list li::before {
-    content: counter(quote-counter) ".";
-    position: absolute;
-    left: 0;
-    color: var(--maj-light);
-    font-weight: 700;
+  .problem-right {}
+  .check-list--positive li::before {
+    content: '✓';
   }
 
-  /* ══════════════════════════════════════ */
-  /* WAS ICH ANDERS MACHE */
-  /* ══════════════════════════════════════ */
-  .anders {
-    background: var(--white);
-    padding: 100px 48px;
-  }
-  .anders-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .anders-header {
-    max-width: 700px;
-    margin-bottom: 40px;
-  }
-  .anders-text {
-    max-width: 700px;
-    margin-bottom: 48px;
-  }
-  .anders-text p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-  .anders-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .anders-card {
-    background: var(--blush);
-    border-radius: 20px;
-    padding: 32px 28px;
-  }
-  .anders-card h3 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 18px;
-    color: var(--midnight);
-    margin-bottom: 12px;
-  }
-  .anders-card p {
-    font-size: 14px;
-    line-height: 1.65;
-    color: var(--muted);
-  }
-
-  @media (max-width: 900px) {
-    .anders { padding: 64px 24px; }
-    .anders-grid { grid-template-columns: 1fr; }
-  }
 
   /* ══════════════════════════════════════ */
   /* ANGEBOT */
@@ -459,32 +343,6 @@
   .offer-header {
     text-align: center;
     margin-bottom: 40px;
-  }
-  .offer-text {
-    max-width: 700px;
-    margin: 0 auto 48px;
-  }
-  .offer-text p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--muted);
-    margin-bottom: 16px;
-  }
-  .offer-orient {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    color: var(--midnight) !important;
-    margin-top: 32px !important;
-  }
-  .offer-closing {
-    max-width: 700px;
-    margin: 40px auto 0;
-  }
-  .offer-closing p {
-    font-size: 16px;
-    line-height: 1.7;
-    color: var(--muted);
-    font-style: italic;
   }
   .offer-grid {
     display: grid;
@@ -538,17 +396,6 @@
     color: var(--muted);
     margin-bottom: 20px;
   }
-  .offer-link {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    color: var(--maj-light);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .offer-link:hover { gap: 10px; }
 
   /* ══════════════════════════════════════ */
   /* APPROACH */
@@ -740,9 +587,8 @@
 <nav>
   <div class="nav-logo">Vera Schiecke<span class="dot">.</span></div>
   <ul class="nav-links">
+    <li><a href="#anders">Was mich unterscheidet</a></li>
     <li><a href="#angebot">Angebot</a></li>
-    <li><a href="#ansatz">Ansatz</a></li>
-    <li><a href="#ueber">Über mich</a></li>
     <li><a href="#kontakt" class="nav-cta" onclick="openCalendar(); return false;">Gespräch buchen</a></li>
   </ul>
 </nav>
@@ -753,7 +599,7 @@
     <div class="hero-text">
       <h1 class="hero-claim">Dein Team<br>ignoriert KI?<br><span>Ich ändere das.</span></h1>
       <div class="hero-byline"><span class="separator"></span> Vera Schiecke · KI-Trainerin und Diplom-Psychologin</div>
-      <p class="hero-body">KI-Trainings mit Psychologie-Background – damit KI-Tools nicht nur eine weitere Lizenz bedeuten, sondern eine Gewohnheit werden.</p>
+      <p class="hero-body">KI-Trainings mit Psychologie-Background – damit KI-Tools nicht nur eine weitere Lizenz sind, sondern wirklich genutzt werden.</p>
       <div class="hero-buttons">
         <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
         <a href="#angebot" class="btn btn-secondary">Mein Angebot</a>
@@ -779,63 +625,59 @@
       <div class="stat-label">Jahre Erfahrung als Trainerin</div>
     </div>
     <div class="stat">
-      <div class="stat-num">100%</div>
-      <div class="stat-label">Spaß mit KI</div>
+      <div class="stat-num">30+</div>
+      <div class="stat-label">Workshops und Trainings durchgeführt</div>
     </div>
   </div>
 </section>
 
 <!-- ══ PROBLEM / SOLUTION ══ -->
-<section class="problem" id="ansatz">
+<section class="problem">
   <div class="problem-inner">
     <div class="problem-left">
-      <div class="section-eyebrow">Das eigentliche Problem</div>
-      <h2 class="section-title">KI-Trainings scheitern <span>zweimal.</span></h2>
-      <p class="section-body">Erstens am Mindset: Menschen haben Angst vor Veränderung, nicht vor Tools. Zweitens an der Tiefe: Oberflächliche Demos erzeugen kein echtes Können. Das Ergebnis: viel Aufwand, wenig Wirkung.</p>
+      <div class="section-eyebrow">Das Problem</div>
+      <h2 class="section-title">Was schiefläuft</h2>
       <ul class="check-list">
         <li>Zwei Leute im Team probieren ab und zu Copilot. Der Rest macht weiter wie immer</li>
         <li>Führungskräfte fordern "KI-Nutzung" ohne die Widerstände zu verstehen</li>
         <li>Copilot-Lizenzen liegen brach, weil niemand die echten Use Cases kennt</li>
-
       </ul>
     </div>
     <div class="problem-right">
-      <div class="quote-mark">"</div>
-      <div class="quote-text">Gute KI-Trainings brauchen drei Dinge:</div>
-      <ol class="quote-list">
-        <li>Abholen statt überrollen.</li>
-        <li>Widerstände ernst nehmen statt wegmoderieren.</li>
-        <li>Know-how, das am Montag noch da ist.</li>
-      </ol>
-      <div class="quote-author">— Vera Schiecke</div>
+      <div class="section-eyebrow">So geht's besser</div>
+      <h2 class="section-title">Was wirklich funktioniert</h2>
+      <ul class="check-list check-list--positive">
+        <li>Abholen statt überrollen — Skepsis ist willkommen</li>
+        <li>Eure echte Arbeit statt generischer Demos</li>
+        <li>Know-how, das am Montag noch da ist</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- ══ WAS ICH ANDERS MACHE ══ -->
-<section class="anders" id="ueber">
-  <div class="anders-inner">
-    <div class="anders-header">
-      <div class="section-eyebrow">Was ich anders mache</div>
-      <h2 class="section-title">Ich gebe KI-Trainings, aus denen Leute <span>mit einem Lächeln</span> rauskommen.</h2>
+<!-- ══ WAS MICH UNTERSCHEIDET ══ -->
+<section class="approach" id="anders">
+  <div class="approach-inner">
+    <div class="approach-header">
+      <div class="section-eyebrow">Was mich unterscheidet</div>
+      <h2 class="section-title">KI-Trainings, aus denen Leute <span>mit einem Lächeln</span> rauskommen.</h2>
+      <p class="section-body" style="max-width:580px;">In meinen Workshops vergessen die Leute, dass sie in einer Schulung sitzen. Sie probieren aus, rufen sich gegenseitig rüber, lachen. Und dann wollen sie mehr.</p>
     </div>
-    <div class="anders-text">
-      <p>Erinnere Dich mal an das letzte IT-Training, das Du besucht hast. Hast Du danach gelächelt? Vermutlich eher nicht?</p>
-      <p>In meinen Workshops passiert folgendes: Die Leute vergessen, dass sie in einer Schulung sitzen. Sie probieren aus, rufen sich gegenseitig rüber, lachen. Und dann wollen sie mehr.</p>
-      <p>Das passiert, weil ich ein paar Dinge anders mache:</p>
-    </div>
-    <div class="anders-grid">
-      <div class="anders-card">
-        <h3>Skepsis ist willkommen.</h3>
-        <p>„Ich weiß nicht, ob ich das gut finde" — super. Ehrliche Antwort. Viel besser als höfliches Nicken und danach nicht benutzen.</p>
+    <div class="approach-grid">
+      <div class="approach-step">
+        <div class="step-num">01</div>
+        <div class="step-title">Skepsis ist willkommen.</div>
+        <div class="step-body">„Ich weiß nicht, ob ich das gut finde" — super. Ehrliche Antwort. Viel besser als höfliches Nicken und danach nicht benutzen.</div>
       </div>
-      <div class="anders-card">
-        <h3>Ihre echte Arbeit, nicht meine Demo.</h3>
-        <p>Die Mail, die Sie jeden Montag schreiben. Der Bericht, der drei Stunden kostet. „Das muss doch einfacher gehen." — Geht es oft.</p>
+      <div class="approach-step">
+        <div class="step-num">02</div>
+        <div class="step-title">Eure echte Arbeit, nicht meine Demo.</div>
+        <div class="step-body">Die Mail, die jeden Montag geschrieben wird. Der Bericht, der drei Stunden kostet. „Das muss doch einfacher gehen." — Geht es oft.</div>
       </div>
-      <div class="anders-card">
-        <h3>Ehrlich über die Grenzen.</h3>
-        <p>KI kann beeindruckende Dinge. Und beeindruckenden Unsinn. Ich zeige beides — weil Sie mir nur vertrauen, wenn ich nicht nur die Highlights zeige.</p>
+      <div class="approach-step">
+        <div class="step-num">03</div>
+        <div class="step-title">Ehrlich über die Grenzen.</div>
+        <div class="step-body">KI kann beeindruckende Dinge. Und beeindruckenden Unsinn. Ich zeige beides — weil ihr mir nur vertraut, wenn ich nicht nur die Highlights zeige.</div>
       </div>
     </div>
   </div>
@@ -847,55 +689,28 @@
     <div class="offer-header">
       <div class="section-eyebrow">Angebot</div>
       <h2 class="section-title">Kein Paket von der Stange. <span>Dafür passgenau.</span></h2>
-      <p class="section-body">Jedes Training wird für Ihr Team gebaut. Woran Sie sich orientieren können:</p>
+      <p class="section-body">Jedes Training wird für euer Team gebaut. Woran ihr euch orientieren könnt:</p>
     </div>
     <div class="offer-grid">
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="offer-card-title">KI-Workshops</div>
-        <div class="offer-card-body">Von 2 Stunden Einstieg bis zum ganzen Tag mit echten Aufgaben aus Ihrem Alltag. Copilot, Gemini, ChatGPT oder Claude — je nachdem, was bei Ihnen im Einsatz ist.</div>
+        <div class="offer-card-body">Von 2 Stunden Einstieg bis zum ganzen Tag mit echten Aufgaben aus eurem Alltag. Copilot, Gemini, ChatGPT oder Claude — je nachdem, was bei euch im Einsatz ist.</div>
       </div>
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <div class="offer-card-title">KI-Begleitung</div>
-        <div class="offer-card-body">Begleitung über mehrere Termine, damit KI nicht nur ein Workshop bleibt, sondern eine Gewohnheit wird. Erprobt mit 250+ Teilnehmenden.</div>
+        <div class="offer-card-body">Begleitung über mehrere Termine, damit KI nicht nur ein Workshop bleibt, sondern im Alltag ankommt. Ich bleibe dran, bis euer Team selbstständig läuft.</div>
       </div>
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
         <div class="offer-card-title">KI-Kompass</div>
-        <div class="offer-card-body">Entscheidungs-Workshop für Führungskräfte: Welche KI-Tools passen zu Ihrem Team? Fundierte Priorisierung statt Feature-Vergleich.</div>
+        <div class="offer-card-body">Entscheidungs-Workshop für Führungskräfte: Welche KI-Tools passen zu eurem Team? Fundierte Priorisierung statt Feature-Vergleich.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ APPROACH ══ -->
-<section class="approach">
-  <div class="approach-inner">
-    <div class="approach-header">
-      <div class="section-eyebrow">Mein Ansatz</div>
-      <h2 class="section-title">Psychologie × Technologie.<br><span>So funktioniert echte Adoption.</span></h2>
-      <p class="section-body" style="max-width:580px;">Weil Technologie-Adoption weder ein rein technisches noch ein rein menschliches Problem ist. Es ist beides. Und nach 12 Jahren Arbeit mit Lernwiderständen weiß ich: Neugier ist trainierbar.</p>
-    </div>
-    <div class="approach-grid">
-      <div class="approach-step">
-        <div class="step-num">01</div>
-        <div class="step-title">Verstehen × Analysieren</div>
-        <div class="step-body">Wo stecken die Ängste? Und wo stecken die echten Tool-Chancen? Ich analysiere beides – das Mindset und die Workflows.</div>
-      </div>
-      <div class="approach-step">
-        <div class="step-num">02</div>
-        <div class="step-title">Aha-Momente × echte Use Cases</div>
-        <div class="step-body">Kein generisches Demo. Copilot mit euren echten Excel-Daten. Claude mit eurem Reporting. Persönlich relevant, sofort anwendbar.</div>
-      </div>
-      <div class="approach-step">
-        <div class="step-num">03</div>
-        <div class="step-title">Gewohnheit × Kompetenz</div>
-        <div class="step-body">Begleitung über die kritische Phase. Tool-Updates, neue Features, wachsende Anwendungstiefe – bis KI keine Überwindung mehr kostet.</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ══ CTA ══ -->
 <section class="cta" id="kontakt">
