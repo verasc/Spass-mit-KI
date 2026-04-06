@@ -276,9 +276,11 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
-    align-items: center;
+    align-items: start;
   }
-  .problem-left {}
+  .problem-left,
+  .problem-right {
+  }
   .section-eyebrow {
     font-family: 'Outfit', sans-serif;
     font-weight: 700;
@@ -323,7 +325,6 @@
     color: var(--maj-light);
     font-weight: 700;
   }
-  .problem-right {}
   .check-list--positive li::before {
     content: '✓';
   }
@@ -333,7 +334,7 @@
   /* ANGEBOT */
   /* ══════════════════════════════════════ */
   .offer {
-    background: var(--blush);
+    background: var(--midnight);
     padding: 100px 48px;
   }
   .offer-inner {
@@ -344,30 +345,35 @@
     text-align: center;
     margin-bottom: 40px;
   }
+  .offer .section-eyebrow { color: var(--maj-glow); }
+  .offer .section-title { color: var(--blush); }
+  .offer .section-title span { color: var(--maj-glow); }
+  .offer .section-body { color: var(--muted-light); }
   .offer-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
   .offer-card {
-    background: var(--white);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(134,120,255,0.1);
     border-radius: 20px;
     padding: 36px 28px;
-    box-shadow: 0 4px 24px rgba(13,2,33,0.04);
     transition: all 0.3s;
     position: relative;
     overflow: hidden;
   }
   .offer-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(60,46,219,0.1);
+    background: rgba(134,120,255,0.08);
+    border-color: rgba(134,120,255,0.2);
   }
   .offer-card::after {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 4px;
-    background: var(--maj-light);
+    background: var(--maj-glow);
     opacity: 0;
     transition: opacity 0.3s;
   }
@@ -375,7 +381,7 @@
   .offer-icon {
     width: 52px; height: 52px;
     border-radius: 14px;
-    background: var(--blush);
+    background: rgba(134,120,255,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -387,13 +393,13 @@
     font-weight: 700;
     font-size: 20px;
     letter-spacing: -0.5px;
-    color: var(--midnight);
+    color: var(--blush);
     margin-bottom: 10px;
   }
   .offer-card-body {
     font-size: 14px;
     line-height: 1.65;
-    color: var(--muted);
+    color: var(--muted-light);
     margin-bottom: 20px;
   }
 
@@ -554,6 +560,57 @@
     color: var(--muted-light);
   }
 
+  /* ══════════════════════════════════════ */
+  /* STIMMEN */
+  /* ══════════════════════════════════════ */
+  .testimonials {
+    background: var(--blush);
+    padding: 100px 48px;
+  }
+  .testimonials-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 32px;
+    box-shadow: 0 4px 24px rgba(13,2,33,0.04);
+  }
+  .testimonial-quote-mark {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--maj-glow);
+    margin-bottom: 8px;
+  }
+  .testimonial-text {
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--midnight);
+    margin-bottom: 20px;
+  }
+  .testimonial-divider {
+    width: 40px;
+    height: 2px;
+    background: var(--maj-light);
+    margin-bottom: 12px;
+  }
+  .testimonial-role {
+    font-size: 13px;
+    color: rgba(13,2,33,0.6);
+  }
+
   /* ══ Responsive ══ */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
@@ -570,6 +627,8 @@
     .problem-inner { grid-template-columns: 1fr; gap: 40px; }
     .offer { padding: 64px 24px; }
     .offer-grid { grid-template-columns: 1fr; }
+    .testimonials { padding: 64px 24px; }
+    .testimonials-grid { grid-template-columns: 1fr; }
     .approach { padding: 64px 24px; }
     .approach-grid { grid-template-columns: 1fr; }
     .cta { padding: 64px 24px; }
@@ -599,7 +658,7 @@
     <div class="hero-text">
       <h1 class="hero-claim">Dein Team<br>ignoriert KI?<br><span>Ich ändere das.</span></h1>
       <div class="hero-byline"><span class="separator"></span> Vera Schiecke · KI-Trainerin und Diplom-Psychologin</div>
-      <p class="hero-body">KI-Trainings mit Psychologie-Background – damit KI-Tools nicht nur eine weitere Lizenz sind, sondern wirklich genutzt werden.</p>
+      <p class="hero-body">KI-Trainings mit psychologischem Feingefühl: Damit KI-Tools nicht nur eine weitere Lizenz sind, sondern wirklich genutzt werden.</p>
       <div class="hero-buttons">
         <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
         <a href="#angebot" class="btn btn-secondary">Mein Angebot</a>
@@ -617,16 +676,16 @@
 <section class="stats">
   <div class="stats-inner">
     <div class="stat">
-      <div class="stat-num">250+</div>
-      <div class="stat-label">Teilnehmende trainiert</div>
+      <div class="stat-num">300+</div>
+      <div class="stat-label">Teilnehmende zum Thema KI trainiert</div>
     </div>
     <div class="stat">
       <div class="stat-num">12+</div>
-      <div class="stat-label">Jahre Erfahrung als Trainerin</div>
+      <div class="stat-label">Jahre Erfahrung als IT-Trainerin</div>
     </div>
     <div class="stat">
-      <div class="stat-num">30+</div>
-      <div class="stat-label">Workshops und Trainings durchgeführt</div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Spaß mit KI</div>
     </div>
   </div>
 </section>
@@ -636,20 +695,20 @@
   <div class="problem-inner">
     <div class="problem-left">
       <div class="section-eyebrow">Das Problem</div>
-      <h2 class="section-title">Was schiefläuft</h2>
+      <h2 class="section-title">Lizenzen gekauft, niemand nutzt sie</h2>
       <ul class="check-list">
         <li>Zwei Leute im Team probieren ab und zu Copilot. Der Rest macht weiter wie immer</li>
-        <li>Führungskräfte fordern "KI-Nutzung" ohne die Widerstände zu verstehen</li>
+        <li>Sven aus der Buchhaltung verweigert KI-Nutzung komplett und niemand versteht warum</li>
         <li>Copilot-Lizenzen liegen brach, weil niemand die echten Use Cases kennt</li>
       </ul>
     </div>
     <div class="problem-right">
       <div class="section-eyebrow">So geht's besser</div>
-      <h2 class="section-title">Was wirklich funktioniert</h2>
+      <h2 class="section-title">Was nach dem Training anders ist</h2>
       <ul class="check-list check-list--positive">
-        <li>Abholen statt überrollen — Skepsis ist willkommen</li>
-        <li>Eure echte Arbeit statt generischer Demos</li>
-        <li>Know-how, das am Montag noch da ist</li>
+        <li>Das ganze Team weiß, was Copilot für sie bringt</li>
+        <li>Auch Sven hat Lust KI auszuprobieren (und darf gesunde Skepsis behalten)</li>
+        <li>Lizenzen, die sich rechnen, weil sie tatsächlich genutzt werden.</li>
       </ul>
     </div>
   </div>
@@ -660,7 +719,7 @@
   <div class="approach-inner">
     <div class="approach-header">
       <div class="section-eyebrow">Was mich unterscheidet</div>
-      <h2 class="section-title">KI-Trainings, aus denen Leute <span>mit einem Lächeln</span> rauskommen.</h2>
+      <h2 class="section-title">KI-Trainings, aus denen Teilnehmende<br><span>mit einem Lächeln</span> rauskommen.</h2>
       <p class="section-body" style="max-width:580px;">In meinen Workshops vergessen die Leute, dass sie in einer Schulung sitzen. Sie probieren aus, rufen sich gegenseitig rüber, lachen. Und dann wollen sie mehr.</p>
     </div>
     <div class="approach-grid">
@@ -683,6 +742,42 @@
   </div>
 </section>
 
+<!-- ══ STIMMEN ══ -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="testimonials-header">
+      <div class="section-eyebrow">Stimmen</div>
+      <h2 class="section-title">Was Teilnehmende <span>sagen.</span></h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Endlich mal kein trockenes IT-Training.</p>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-role">Teilnehmer, Führungskräfte-Workshop</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Ich habe mich zum ersten Mal getraut, KI wirklich auszuprobieren.</p>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-role">Teilnehmerin, Gemini-Workshop</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Es hat einfach Spaß gemacht und ich habe viel mitgenommen.</p>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-role">Teilnehmerin, KI-Einsteiger-Workshop</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-quote-mark">&ldquo;</div>
+        <p class="testimonial-text">Vera schafft einen Raum, in dem man Fragen stellen kann, ohne sich blöd vorzukommen.</p>
+        <div class="testimonial-divider"></div>
+        <div class="testimonial-role">Teilnehmerin, Copilot-Workshop</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ══ ANGEBOT ══ -->
 <section class="offer" id="angebot">
   <div class="offer-inner">
@@ -693,17 +788,17 @@
     </div>
     <div class="offer-grid">
       <div class="offer-card">
-        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="offer-card-title">KI-Workshops</div>
-        <div class="offer-card-body">Von 2 Stunden Einstieg bis zum ganzen Tag mit echten Aufgaben aus eurem Alltag. Copilot, Gemini, ChatGPT oder Claude — je nachdem, was bei euch im Einsatz ist.</div>
+        <div class="offer-card-body">Von 2 Stunden Einstieg bis zum ganzen Tag mit echten Aufgaben aus eurem Alltag. Copilot, Gemini, ChatGPT oder Claude. Je nachdem, was bei euch im Einsatz ist.</div>
       </div>
       <div class="offer-card">
-        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
+        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <div class="offer-card-title">KI-Begleitung</div>
         <div class="offer-card-body">Begleitung über mehrere Termine, damit KI nicht nur ein Workshop bleibt, sondern im Alltag ankommt. Ich bleibe dran, bis euer Team selbstständig läuft.</div>
       </div>
       <div class="offer-card">
-        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#4A4FE0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
+        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
         <div class="offer-card-title">KI-Kompass</div>
         <div class="offer-card-body">Entscheidungs-Workshop für Führungskräfte: Welche KI-Tools passen zu eurem Team? Fundierte Priorisierung statt Feature-Vergleich.</div>
       </div>
@@ -717,7 +812,7 @@
   <div class="cta-inner">
     <div class="section-eyebrow">Bereit?</div>
     <h2 class="cta-title">KI-Neugier ist <span>trainierbar.</span><br>Lasst uns starten.</h2>
-    <p class="cta-body">In einem kostenlosen Erstgespräch klären wir, wo euer Team steht – und was der nächste sinnvolle Schritt wäre. Kein Pitch, kein Druck.</p>
+    <p class="cta-body">In einem kostenlosen Erstgespräch klären wir, wo euer Team steht – und was der nächste sinnvolle Schritt wäre.</p>
     <div id="calendar-button"></div>
   </div>
 </section>
