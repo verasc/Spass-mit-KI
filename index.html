@@ -719,6 +719,147 @@
     letter-spacing: 0.5px;
   }
 
+  /* ══════════════════════════════════════ */
+  /* WORKSHOP DETAILS */
+  /* ══════════════════════════════════════ */
+  .offer-expand-btn {
+    margin-top: 16px;
+    background: transparent;
+    border: 1.5px solid rgba(134,120,255,0.35);
+    color: var(--maj-glow);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .offer-expand-btn:hover {
+    background: rgba(134,120,255,0.1);
+    border-color: var(--maj-glow);
+  }
+  .expand-arrow { transition: transform 0.25s; display: inline-block; }
+  .offer-expand-btn[aria-expanded="true"] .expand-arrow { transform: rotate(180deg); }
+  .workshop-details {
+    margin-top: 20px;
+  }
+  .workshop-details[hidden] { display: none; }
+  .workshop-details-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .workshop-detail-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(134,120,255,0.15);
+    border-radius: 20px;
+    padding: 28px 24px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* ÜBER VERA */
+  /* ══════════════════════════════════════ */
+  .about {
+    background: var(--blush);
+    padding: 100px 48px;
+  }
+  .about-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .about-text .section-body {
+    margin-bottom: 16px;
+  }
+  .about-quote-block {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .about-quote {
+    background: var(--white);
+    border-left: 4px solid var(--maj-light);
+    border-radius: 0 16px 16px 0;
+    padding: 28px 28px 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .about-quote p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--midnight);
+  }
+  .about-quote em {
+    font-style: italic;
+    color: var(--maj-light);
+  }
+  .about-closing {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* ══════════════════════════════════════ */
+  /* ABLAUF */
+  /* ══════════════════════════════════════ */
+  .ablauf {
+    background: var(--white);
+    padding: 100px 48px;
+  }
+  .ablauf-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .ablauf-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 36px 0 28px;
+  }
+  .ablauf-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(13,2,33,0.06);
+  }
+  .ablauf-step:first-child { border-top: 1px solid rgba(13,2,33,0.06); }
+  .ablauf-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    color: var(--maj-light);
+    line-height: 1;
+    min-width: 32px;
+    padding-top: 2px;
+  }
+  .ablauf-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--midnight);
+    margin-bottom: 4px;
+  }
+  .ablauf-body {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .ablauf-note {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    padding-top: 4px;
+  }
+
   /* ══ Responsive ══ */
   @media (max-width: 900px) {
     nav { padding: 16px 24px; }
@@ -763,12 +904,12 @@
 <section class="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <h1 class="hero-claim">Euer Team<br>ignoriert KI?<br><span>Ich ändere das.</span></h1>
+      <h1 class="hero-claim">Euer Team ignoriert KI?<br><span>Ich ändere das. Damit aus Lizenzen echte Nutzung wird.</span></h1>
       <div class="hero-byline"><span class="separator"></span> Vera Schiecke · KI-Trainerin und Diplom-Psychologin</div>
-      <p class="hero-body">KI-Trainings mit psychologischem Feingefühl: Damit KI-Tools nicht nur eine weitere Lizenz sind, sondern wirklich genutzt werden.</p>
+      <p class="hero-body">KI-Trainings mit psychologischem Feingefühl: damit Teams Berührungsängste abbauen, sinnvolle Use Cases erkennen und Tools wie Copilot, Gemini und Co. im Alltag wirklich nutzen.</p>
       <div class="hero-buttons">
-        <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Erstgespräch vereinbaren →</a>
-        <a href="#angebot" class="btn btn-secondary">Mein Angebot</a>
+        <a href="#kontakt" class="btn btn-primary" onclick="openCalendar(); return false;">Kostenloses Erstgespräch buchen →</a>
+        <a href="#angebot" class="btn btn-secondary">Trainingsformate ansehen</a>
       </div>
     </div>
     <div class="hero-photo">
@@ -784,7 +925,7 @@
   <div class="stats-inner">
     <div class="stat">
       <div class="stat-num">300+</div>
-      <div class="stat-label">Teilnehmende zum Thema KI trainiert</div>
+      <div class="stat-label">Teilnehmende in KI-Trainings</div>
     </div>
     <div class="stat">
       <div class="stat-num">12+</div>
@@ -792,7 +933,7 @@
     </div>
     <div class="stat">
       <div class="stat-num">100%</div>
-      <div class="stat-label">Spaß mit KI</div>
+      <div class="stat-label">anwendbares Wissen</div>
     </div>
   </div>
 </section>
@@ -804,20 +945,39 @@
       <div class="section-eyebrow">Das Problem</div>
       <h2 class="section-title">Lizenzen gekauft, niemand nutzt sie</h2>
       <ul class="check-list">
-        <li>Zwei Leute im Team probieren ab und zu Copilot. Der Rest macht weiter wie immer</li>
-        <li>Sven<span class="fn">*</span> aus der Buchhaltung verweigert KI-Nutzung komplett und niemand versteht warum</li>
-        <li>Copilot-Lizenzen liegen brach, weil niemand die echten Use Cases kennt</li>
+        <li>Ein paar im Team probieren Copilot oder ChatGPT aus. Der Rest arbeitet weiter wie bisher.</li>
+        <li>Ein Teil des Teams blockt bei KI sofort ab – nicht aus Trotz, sondern weil Nutzen, Sicherheit oder Einstieg unklar sind.</li>
+        <li>Lizenzen bleiben ungenutzt, weil konkrete Anwendungsfälle für den Arbeitsalltag fehlen.</li>
       </ul>
     </div>
     <div class="problem-right">
       <div class="section-eyebrow">So geht's besser</div>
-      <h2 class="section-title">Was nach dem Training anders ist</h2>
+      <h2 class="section-title">Was sich nach dem Training konkret verändert</h2>
       <ul class="check-list check-list--positive">
-        <li>Das ganze Team weiß, was Copilot und Co. für sie bringen</li>
-        <li>Auch Sven<span class="fn">*</span> hat Lust KI auszuprobieren (und darf gesunde Skepsis behalten)</li>
-        <li>Lizenzen, die sich rechnen, weil sie tatsächlich genutzt werden.</li>
+        <li>Euer Team versteht, wofür KI-Tools im eigenen Arbeitsalltag sinnvoll sind – und wofür nicht.</li>
+        <li>Auch skeptische Mitarbeitende finden einen Einstieg, ohne ihre kritische Haltung aufgeben zu müssen.</li>
+        <li>Bereits vorhandene Lizenzen werden im Team sinnvoller genutzt, statt ungenutzt liegen zu bleiben.</li>
       </ul>
-    <p class="problem-footnote"><span class="fn">*</span> Nichts gegen Sven, Sven ist toll, aber er wurde einfach noch nicht richtig abgeholt.</p>
+  </div>
+</section>
+
+<!-- ══ WER ICH BIN ══ -->
+<section class="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-eyebrow">Wer ich bin und warum ich das mache</div>
+      <h2 class="section-title">Ich bin Vera,<br><span>KI-Trainerin und Diplom-Psychologin.</span></h2>
+      <p class="section-body">Seit über 12 Jahren gebe ich IT-Trainings und habe dabei immer wieder dasselbe gesehen: Tools werden eingeführt, aber im Alltag nicht wirklich genutzt.</p>
+      <p class="section-body">Nicht, weil die Leute nicht wollen. Sondern weil Unsicherheit, Überforderung oder schlechte erste Erfahrungen im Weg stehen.</p>
+      <p class="section-body">Genau da setze ich an. Ich erkläre nicht einfach nur Tools. Ich arbeite so, dass Menschen anfangen, selbst zu denken, auszuprobieren und sich zuzutrauen, KI sinnvoll einzusetzen.</p>
+    </div>
+    <div class="about-quote-block">
+      <div class="about-quote">
+        <p>Mir ist wichtig, dass niemand aus einem Workshop rausgeht und denkt: <em>„War spannend, aber ohne Vera kriege ich das nicht hin."</em></p>
+        <p>Sondern: <em>„Ich weiß, wo ich anfangen kann. Ich kann das selbst weiterdribbeln."</em></p>
+      </div>
+      <p class="about-closing">Ich nehme Unsicherheiten ernst, gebe Orientierung und schaffe einen Raum, in dem Lernen ohne Druck möglich ist.</p>
+    </div>
   </div>
 </section>
 
@@ -826,24 +986,24 @@
   <div class="approach-inner">
     <div class="approach-header">
       <div class="section-eyebrow">Was mich unterscheidet</div>
-      <h2 class="section-title">KI-Trainings, aus denen Teilnehmende<br><span>mit einem Lächeln</span> rauskommen.</h2>
-      <p class="section-body" style="max-width:580px;">In meinen Workshops vergessen die Leute, dass sie in einer Schulung sitzen. Sie probieren aus, rufen sich gegenseitig rüber, lachen. Und dann wollen sie mehr.</p>
+      <h2 class="section-title">KI-Trainings, die Berührungsängste abbauen und <span>Lust aufs Ausprobieren</span> machen.</h2>
+      <p class="section-body" style="max-width:580px;">In meinen Workshops wird nicht nur zugehört, sondern ausprobiert. Die Teilnehmenden arbeiten mit echten Aufgaben aus ihrem Alltag, stellen Fragen, testen Grenzen und erleben direkt, wo KI ihnen Zeit spart.</p>
     </div>
     <div class="approach-grid">
       <div class="approach-step">
         <div class="step-num">01</div>
         <div class="step-title">Skepsis ist willkommen.</div>
-        <div class="step-body">Ich bin ein Fan von Teilnehmenden, die ihre KI-Skepsis kundtun. Damit lässt sich arbeiten. Viel besser als höfliches Nicken und danach nicht benutzen.</div>
+        <div class="step-body">Ich arbeite lieber mit ehrlichen Vorbehalten als mit höflichem Nicken. Denn nur wenn Fragen, Unsicherheiten und Widerstände offen auf den Tisch kommen, entsteht echte Nutzung statt stiller Ablehnung.</div>
       </div>
       <div class="approach-step">
         <div class="step-num">02</div>
         <div class="step-title">Echte Use Cases.</div>
-        <div class="step-body">Ich arbeite mit Aufgaben, die eure Leute tatsächlich auf dem Tisch haben, da wo im Alltag Zeit verloren geht. Und damit's hängen bleibt, gerne auch mit Humor.</div>
+        <div class="step-body">Wir arbeiten mit Aufgaben, die im Team tatsächlich anfallen: recherchieren, formulieren, strukturieren, zusammenfassen, vorbereiten. So wird aus ‚klingt spannend' ein konkreter Arbeitsvorteil.</div>
       </div>
       <div class="approach-step">
         <div class="step-num">03</div>
-        <div class="step-title">Grenzen ehrlich aufzeigen.</div>
-        <div class="step-body">KI kann beeindruckende Dinge. Und beeindruckenden Unsinn. Ich zeige beides. Das schafft Vertrauen und: Wer weiß, wo KI halluziniert, kann Ergebnisse einordnen statt nur abnicken.</div>
+        <div class="step-title">Grenzen ehrlich zeigen.</div>
+        <div class="step-body">KI kann viel und macht Fehler. Ich zeige beides. Das schafft Vertrauen, weil euer Team lernt, Ergebnisse sinnvoll zu prüfen statt sie blind zu übernehmen oder das Tool gleich ganz abzuschreiben.</div>
       </div>
     </div>
   </div>
@@ -871,13 +1031,13 @@
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Es hat einfach Spaß gemacht und ich habe viel mitgenommen.</p>
+        <p class="testimonial-text">Nach dem Workshop hatte ich direkt drei konkrete Anwendungsfälle, die ich sofort nutzen konnte.</p>
         <div class="testimonial-divider"></div>
         <div class="testimonial-role">Teilnehmerin, KI-Einsteiger-Workshop</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Vera schafft einen Raum, in dem man Fragen stellen kann, ohne sich blöd vorzukommen.</p>
+        <p class="testimonial-text">Veras empathische Art und Praxisnähe hat im Team viel Vertrauen geschaffen.</p>
         <div class="testimonial-divider"></div>
         <div class="testimonial-role">Teilnehmerin, Copilot-Workshop</div>
       </div>
@@ -897,29 +1057,38 @@
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
         <div class="offer-card-title">KI-Workshops</div>
-        <div class="offer-card-body">Von 2 Stunden Einstieg bis zum ganzen Tag mit echten Aufgaben aus eurem Alltag. Copilot, Gemini, ChatGPT oder Claude. Je nachdem, was bei euch im Einsatz ist.</div>
+        <div class="offer-card-body">Für Teams, die einen fundierten und motivierenden Einstieg brauchen oder bestehende Nutzung vertiefen wollen.<br><br>Mögliche Formate: 2 Stunden, halber Tag oder ganzer Tag.<br>Inhalte: Grundlagen, sinnvolle Prompts, echte Anwendungsfälle, Grenzen und Qualitätsprüfung.</div>
+        <button class="offer-expand-btn" onclick="toggleWorkshops(this)" aria-expanded="false">Mehr erfahren <span class="expand-arrow">↓</span></button>
       </div>
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
         <div class="offer-card-title">KI-Begleitung</div>
-        <div class="offer-card-body">Auf Wunsch Begleitung über mehrere Termine, damit KI nicht nur ein Workshop bleibt, sondern im Alltag ankommt. Ich bleibe dran, bis euer Team selbstständig läuft.</div>
+        <div class="offer-card-body">Für Teams, die nach dem ersten Workshop nicht wieder in alte Muster zurückfallen sollen.<br><br>Über mehrere Termine hinweg vertiefen wir Anwendungsfälle, klären Fragen aus dem Alltag und bauen Schritt für Schritt Sicherheit auf.<br>So wird aus einem guten Impuls echte Routine.</div>
       </div>
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
         <div class="offer-card-title">KI-Kompass</div>
-        <div class="offer-card-body">Entscheidungs-Workshop für Führungskräfte: Welche KI-Tools passen zu eurem Team? Fundierte Priorisierung statt Feature-Vergleich.</div>
+        <div class="offer-card-body">Ein Entscheidungs-Workshop für alle, die Orientierung brauchen: Welche Tools passen wirklich zu eurem Team, euren Aufgaben und eurem Reifegrad?<br><br>Statt Tool-Hype und Feature-Listen bekommt ihr eine fundierte Grundlage für Prioritäten, Einführung und nächste Schritte.</div>
       </div>
-      <div class="offer-feature">
-        <div>
+    </div>
+
+    <!-- Aufklappbare Workshop-Details -->
+    <div class="workshop-details" id="workshop-details" hidden>
+      <div class="workshop-details-grid">
+        <div class="workshop-detail-card">
           <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
           <div class="offer-card-title">KI-Bildgenerierung</div>
-          <div class="offer-card-body">Von der leeren Seite zum fertigen Bild in Minuten: Mit Tools wie Recraft oder Ideogram entstehen Logos, Illustrationen und Social-Media-Visuals – ganz ohne Photoshop-Kenntnisse. Ich zeige, wie das geht, und was dabei wirklich funktioniert.</div>
+          <div class="offer-card-body">Von der Idee zum brauchbaren Bild. Hier geht's darum, wie ihr mit Bild-KI-Tools (Midjourney, Recraft, Freepik) schnell zu Bildern kommt, die ihr wirklich verwenden könnt: für Präsentationen, Social Media oder erste Entwürfe, ohne stundenlanges Rumprobieren.</div>
         </div>
-        <div class="imagegen-gallery">
-          <div class="imagegen-placeholder">Bild folgt</div>
-          <div class="imagegen-placeholder">Bild folgt</div>
-          <div class="imagegen-placeholder">Bild folgt</div>
-          <div class="imagegen-placeholder">Bild folgt</div>
+        <div class="workshop-detail-card">
+          <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div class="offer-card-title">Einführungsworkshop Gemini oder Copilot</div>
+          <div class="offer-card-body">Praxisnaher Einstieg in das Tool, das bei euch im Einsatz ist – mit echten Aufgaben aus dem Arbeitsalltag und direktem Ausprobieren.</div>
+        </div>
+        <div class="workshop-detail-card">
+          <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div class="offer-card-title">Von Chaos zu klarer Präsentation – mit KI</div>
+          <div class="offer-card-body">Ich zeige, wie KI beim Strukturieren, Formulieren und Visualisieren hilft – und wie ihr eure Präsentationen so aufbaut, dass Tools wie Copilot sinnvoll damit arbeiten können.<br><br>Denn gute Ergebnisse entstehen nicht nur durch Prompts, sondern auch durch saubere Strukturen im Hintergrund.</div>
         </div>
       </div>
     </div>
@@ -927,12 +1096,43 @@
 </section>
 
 
+<!-- ══ ABLAUF ══ -->
+<section class="ablauf">
+  <div class="ablauf-inner">
+    <div class="section-eyebrow">Ablauf</div>
+    <h2 class="section-title">Der Weg zum optimalen KI-Training</h2>
+    <div class="ablauf-steps">
+      <div class="ablauf-step">
+        <div class="ablauf-num">1</div>
+        <div>
+          <div class="ablauf-title">Vorgespräch</div>
+          <div class="ablauf-body">Wir klären Zielgruppe, Vorkenntnisse, Tools und typische Aufgaben.</div>
+        </div>
+      </div>
+      <div class="ablauf-step">
+        <div class="ablauf-num">2</div>
+        <div>
+          <div class="ablauf-title">Training</div>
+          <div class="ablauf-body">Verständlicher Einstieg, echte Beispiele, direktes Ausprobieren.</div>
+        </div>
+      </div>
+      <div class="ablauf-step">
+        <div class="ablauf-num">3</div>
+        <div>
+          <div class="ablauf-title">Transfer</div>
+          <div class="ablauf-body">Auf Wunsch Follow-up, Vertiefung oder Begleitung im Alltag.</div>
+        </div>
+      </div>
+    </div>
+    <p class="ablauf-note">Der Umfang richtet sich nach Ziel, Teamgröße und Format: vom kompakten 2-Stunden-Workshop bis zur mehrteiligen Begleitung.</p>
+  </div>
+</section>
+
 <!-- ══ CTA ══ -->
 <section class="cta" id="kontakt">
   <div class="cta-inner">
-    <div class="section-eyebrow">Bereit?</div>
-    <h2 class="cta-title">KI-Neugier ist <span>trainierbar.</span><br>Lasst uns starten.</h2>
-    <p class="cta-body">In einem kostenlosen Erstgespräch klären wir, wo euer Team steht – und was der nächste sinnvolle Schritt wäre.</p>
+    <h2 class="cta-title">KI-Neugier ist <span>trainierbar.</span></h2>
+    <p class="cta-body">Lasst uns klären, was euer Team gerade wirklich braucht.<br>Im kostenlosen Erstgespräch schauen wir gemeinsam auf Ausgangslage, Hürden und sinnvolle nächste Schritte – ob Workshop, Begleitung oder erst einmal Orientierung.</p>
     <div id="calendar-button"></div>
   </div>
 </section>
@@ -945,11 +1145,24 @@ window.addEventListener('load', function() {
     calendar.schedulingButton.load({
       url: calendarUrl,
       color: '#4A4FE0',
-      label: 'Erstgespräch vereinbaren',
+      label: 'Kostenloses Erstgespräch buchen',
       target: document.getElementById('calendar-button'),
     });
   }
 });
+
+function toggleWorkshops(btn) {
+  var details = document.getElementById('workshop-details');
+  var expanded = btn.getAttribute('aria-expanded') === 'true';
+  btn.setAttribute('aria-expanded', !expanded);
+  if (expanded) {
+    details.hidden = true;
+    btn.childNodes[0].textContent = 'Mehr erfahren ';
+  } else {
+    details.hidden = false;
+    btn.childNodes[0].textContent = 'Weniger anzeigen ';
+  }
+}
 
 function openCalendar() {
   window.open(calendarUrl, '_blank', 'width=600,height=700');
