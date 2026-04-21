@@ -720,44 +720,24 @@
   }
 
   /* ══════════════════════════════════════ */
-  /* WORKSHOP DETAILS */
+  /* OFFER FOLLOWUP */
   /* ══════════════════════════════════════ */
-  .offer-expand-btn {
-    margin-top: 16px;
-    background: transparent;
-    border: 1.5px solid rgba(134,120,255,0.35);
-    color: var(--maj-glow);
+  .offer-followup {
+    margin-top: 32px;
+    padding: 24px 28px;
+    border-left: 3px solid var(--maj-glow);
+    background: rgba(134,120,255,0.05);
+    border-radius: 0 12px 12px 0;
+  }
+  .offer-followup-text {
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--muted-light);
+  }
+  .offer-followup-text strong {
     font-family: 'Outfit', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.2s;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .offer-expand-btn:hover {
-    background: rgba(134,120,255,0.1);
-    border-color: var(--maj-glow);
-  }
-  .expand-arrow { transition: transform 0.25s; display: inline-block; }
-  .offer-expand-btn[aria-expanded="true"] .expand-arrow { transform: rotate(180deg); }
-  .workshop-details {
-    margin-top: 20px;
-  }
-  .workshop-details[hidden] { display: none; }
-  .workshop-details-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .workshop-detail-card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(134,120,255,0.15);
-    border-radius: 20px;
-    padding: 28px 24px;
+    font-weight: 700;
+    color: var(--blush);
   }
 
   /* ══════════════════════════════════════ */
@@ -1056,40 +1036,24 @@
     <div class="offer-grid">
       <div class="offer-card">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <div class="offer-card-title">KI-Workshops</div>
-        <div class="offer-card-body">Für Teams, die einen fundierten und motivierenden Einstieg brauchen oder bestehende Nutzung vertiefen wollen.<br><br>Mögliche Formate: 2 Stunden, halber Tag oder ganzer Tag.<br>Inhalte: Grundlagen, sinnvolle Prompts, echte Anwendungsfälle, Grenzen und Qualitätsprüfung.</div>
-        <button class="offer-expand-btn" onclick="toggleWorkshops(this)" aria-expanded="false">Mehr erfahren <span class="expand-arrow">↓</span></button>
+        <div class="offer-card-title">KI-Einstieg mit Gemini oder Copilot</div>
+        <div class="offer-card-body">Praxisnaher Einstieg in das Tool, das bei euch im Einsatz ist. Mit echten Aufgaben aus dem Arbeitsalltag, direktem Ausprobieren und sinnvollen Prompts – so dass Lizenzen nach dem Workshop nicht mehr ungenutzt liegen bleiben.</div>
       </div>
       <div class="offer-card">
-        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg></div>
-        <div class="offer-card-title">KI-Begleitung</div>
-        <div class="offer-card-body">Für Teams, die nach dem ersten Workshop nicht wieder in alte Muster zurückfallen sollen.<br><br>Über mehrere Termine hinweg vertiefen wir Anwendungsfälle, klären Fragen aus dem Alltag und bauen Schritt für Schritt Sicherheit auf.<br>So wird aus einem guten Impuls echte Routine.</div>
+        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <div class="offer-card-title">KI-Bildgenerierung</div>
+        <div class="offer-card-body">Von der Idee zum brauchbaren Bild. Mit Bild-KI-Tools wie Midjourney, Recraft oder Freepik schnell zu Bildern kommen, die ihr wirklich verwenden könnt – für Präsentationen, Social Media oder erste Entwürfe, ohne stundenlanges Rumprobieren.</div>
       </div>
       <div class="offer-card">
-        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg></div>
-        <div class="offer-card-title">KI-Kompass</div>
-        <div class="offer-card-body">Ein Entscheidungs-Workshop für alle, die Orientierung brauchen: Welche Tools passen wirklich zu eurem Team, euren Aufgaben und eurem Reifegrad?<br><br>Statt Tool-Hype und Feature-Listen bekommt ihr eine fundierte Grundlage für Prioritäten, Einführung und nächste Schritte.</div>
+        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+        <div class="offer-card-title">Präsentationen mit KI</div>
+        <div class="offer-card-body">Mehr als nur Prompts. Ich unterstütze Teams dabei, Präsentationen sauber aufzusetzen: Struktur entwickeln, Bildstil für die Folien definieren, gemeinsam passende Prompts bauen. Denn Copilot & Co. liefern erst dann gute Ergebnisse, wenn Struktur und Input stimmen.</div>
       </div>
     </div>
 
-    <!-- Aufklappbare Workshop-Details -->
-    <div class="workshop-details" id="workshop-details" hidden>
-      <div class="workshop-details-grid">
-        <div class="workshop-detail-card">
-          <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-          <div class="offer-card-title">KI-Bildgenerierung</div>
-          <div class="offer-card-body">Von der Idee zum brauchbaren Bild. Hier geht's darum, wie ihr mit Bild-KI-Tools (Midjourney, Recraft, Freepik) schnell zu Bildern kommt, die ihr wirklich verwenden könnt: für Präsentationen, Social Media oder erste Entwürfe, ohne stundenlanges Rumprobieren.</div>
-        </div>
-        <div class="workshop-detail-card">
-          <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-          <div class="offer-card-title">Einführungsworkshop Gemini oder Copilot</div>
-          <div class="offer-card-body">Praxisnaher Einstieg in das Tool, das bei euch im Einsatz ist – mit echten Aufgaben aus dem Arbeitsalltag und direktem Ausprobieren.</div>
-        </div>
-        <div class="workshop-detail-card">
-          <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
-          <div class="offer-card-title">Von Chaos zu klarer Präsentation – mit KI</div>
-          <div class="offer-card-body">Ich zeige, wie KI beim Strukturieren, Formulieren und Visualisieren hilft – und wie ihr eure Präsentationen so aufbaut, dass Tools wie Copilot sinnvoll damit arbeiten können.<br><br>Denn gute Ergebnisse entstehen nicht nur durch Prompts, sondern auch durch saubere Strukturen im Hintergrund.</div>
-        </div>
+    <div class="offer-followup">
+      <div class="offer-followup-text">
+        <strong>Und danach?</strong> Auf Wunsch begleite ich Teams über mehrere Termine hinweg – damit aus dem ersten Aha-Moment im Workshop echte Routine im Alltag wird.
       </div>
     </div>
   </div>
@@ -1151,19 +1115,6 @@ window.addEventListener('load', function() {
   }
 });
 
-function toggleWorkshops(btn) {
-  var details = document.getElementById('workshop-details');
-  var expanded = btn.getAttribute('aria-expanded') === 'true';
-  btn.setAttribute('aria-expanded', !expanded);
-  if (expanded) {
-    details.hidden = true;
-    btn.childNodes[0].textContent = 'Mehr erfahren ';
-  } else {
-    details.hidden = false;
-    btn.childNodes[0].textContent = 'Weniger anzeigen ';
-  }
-}
-
 function openCalendar() {
   window.open(calendarUrl, '_blank', 'width=600,height=700');
 }
@@ -1180,9 +1131,9 @@ function openCalendar() {
     <div class="footer-cols">
       <div class="footer-col">
         <div class="footer-col-title">Angebot</div>
-        <a href="#angebot">KI-Workshops</a>
-        <a href="#angebot">KI-Begleitung</a>
-        <a href="#angebot">KI-Kompass</a>
+        <a href="#angebot">KI-Einstieg</a>
+        <a href="#angebot">KI-Bildgenerierung</a>
+        <a href="#angebot">Präsentationen mit KI</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Kontakt</div>
