@@ -631,7 +631,7 @@
   }
   .testimonials-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
   .testimonial-card {
@@ -643,9 +643,9 @@
   .testimonial-quote-mark {
     font-family: Georgia, serif;
     font-size: 48px;
-    line-height: 1;
+    line-height: 0.6;
     color: var(--maj-glow);
-    margin-bottom: 8px;
+    margin-bottom: 0;
   }
   .testimonial-text {
     font-style: italic;
@@ -881,7 +881,13 @@
     .about { padding: 64px 24px; }
     .about-pullquote p { font-size: 17px; }
     .testimonials { padding: 64px 24px; }
-    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid > .testimonial-card:nth-child(3):last-child {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: 100%;
+      max-width: calc(50% - 12px);
+    }
     .approach { padding: 64px 24px; }
     .approach-grid { grid-template-columns: 1fr; }
     .cta { padding: 64px 24px; }
@@ -890,6 +896,14 @@
     .footer-inner { flex-direction: column; gap: 32px; }
     .footer-cols { gap: 40px; }
     .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 600px) {
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .testimonials-grid > .testimonial-card:nth-child(3):last-child {
+      grid-column: auto;
+      justify-self: stretch;
+      max-width: none;
+    }
   }
 </style>
 </head>
@@ -1043,17 +1057,18 @@
         <div class="testimonial-role">Executive Assistant</div>
         <div class="testimonial-company">Sandvik Coromant</div>
       </div>
-      <!-- Weitere Stimme (noch nicht live — Name/Rolle ergänzen, dann auskommentieren entfernen):
       <div class="testimonial-card">
         <div class="testimonial-quote-mark">&ldquo;</div>
         <div class="testimonial-text">
-          <p>Vera Schiecke ist nicht „nur" fachlich sehr gut, sie besticht auch mit großen didaktischen Fähigkeiten. Ihr in den Kursen zu folgen ist sehr leicht. Sie erklärt für jeden verständlich alles in Ruhe und hat so viel Leichtigkeit und Humor dabei, dass Lernen eine freudige und entspannte Sache wird. Selbst bei Themen, die für mich noch ganz neu waren (und ich Widerstände hatte), hat sie mir Türen geöffnet und mich inspiriert in ganz neue Welten einzutauchen. Eine wirklich tolle Trainerin!</p>
+          <p>Vera Schiecke ist nicht „nur" fachlich sehr gut, sie besticht auch mit großen didaktischen Fähigkeiten. Ihr in den Kursen zu folgen ist sehr leicht.</p>
+          <p class="highlight">Sie erklärt für jeden verständlich alles in Ruhe und hat so viel Leichtigkeit und Humor dabei, dass Lernen eine freudige und entspannte Sache wird.</p>
+          <p>Selbst bei Themen, die für mich noch ganz neu waren (und ich Widerstände hatte), hat sie mir Türen geöffnet und mich inspiriert in ganz neue Welten einzutauchen. Eine wirklich tolle Trainerin!</p>
         </div>
         <div class="testimonial-divider"></div>
-        <div class="testimonial-name">[Name folgt]</div>
-        <div class="testimonial-role">[Rolle, Unternehmen]</div>
+        <div class="testimonial-name">Silke Müller</div>
+        <div class="testimonial-role">Inhaberin</div>
+        <div class="testimonial-company">PRÄSENTATIONSWERK</div>
       </div>
-      -->
     </div>
   </div>
 </section>
