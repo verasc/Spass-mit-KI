@@ -229,7 +229,7 @@
     font-family: 'Outfit', sans-serif;
     font-weight: 500;
     font-size: 15px;
-    color: var(--muted);
+    color: var(--midnight);
     margin-bottom: 28px;
     display: flex;
     align-items: center;
@@ -246,7 +246,7 @@
   .hero-body {
     font-size: 17px;
     line-height: 1.7;
-    color: var(--muted);
+    color: var(--midnight);
     max-width: 520px;
     margin-bottom: 40px;
   }
@@ -545,7 +545,7 @@
   .cta-body {
     font-size: 17px;
     line-height: 1.7;
-    color: var(--muted);
+    color: var(--midnight);
     margin-bottom: 36px;
   }
 
@@ -648,7 +648,20 @@
     font-size: 16px;
     line-height: 1.7;
     color: var(--midnight);
-    margin-bottom: 20px;
+    margin: 0 0 20px;
+  }
+  .testimonial-text p {
+    margin: 0 0 12px;
+  }
+  .testimonial-text p:last-child {
+    margin-bottom: 0;
+  }
+  .testimonial-text p.highlight {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--midnight);
   }
   .testimonial-divider {
     width: 40px;
@@ -656,8 +669,20 @@
     background: var(--maj-light);
     margin-bottom: 12px;
   }
+  .testimonial-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--midnight);
+    margin-bottom: 2px;
+  }
   .testimonial-role {
     font-size: 13px;
+    line-height: 1.5;
+    color: rgba(13,2,33,0.6);
+  }
+  .testimonial-company {
+    font-size: 13px;
+    line-height: 1.5;
     color: rgba(13,2,33,0.6);
   }
 
@@ -748,43 +773,35 @@
     padding: 100px 48px;
   }
   .about-inner {
-    max-width: 1100px;
+    max-width: 680px;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
   }
-  .about-text .section-body {
+  .about-inner .section-body {
     margin-bottom: 16px;
+    color: var(--midnight);
   }
-  .about-quote-block {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .about-quote {
-    background: var(--white);
+  .about-pullquote {
+    margin: 36px 0 28px;
+    padding: 6px 0 6px 24px;
     border-left: 4px solid var(--maj-light);
-    border-radius: 0 16px 16px 0;
-    padding: 28px 28px 28px 24px;
     display: flex;
     flex-direction: column;
     gap: 14px;
   }
-  .about-quote p {
-    font-size: 16px;
-    line-height: 1.7;
+  .about-pullquote p {
+    font-size: 19px;
+    line-height: 1.6;
     color: var(--midnight);
   }
-  .about-quote em {
+  .about-pullquote em {
     font-style: italic;
     color: var(--maj-light);
   }
   .about-closing {
-    font-size: 15px;
+    margin-top: 4px;
+    font-size: 16px;
     line-height: 1.7;
-    color: var(--muted);
+    color: var(--midnight);
   }
 
   /* ══════════════════════════════════════ */
@@ -857,6 +874,8 @@
     .offer { padding: 64px 24px; }
     .offer-grid { grid-template-columns: 1fr; }
     .offer-feature { grid-template-columns: 1fr; }
+    .about { padding: 64px 24px; }
+    .about-pullquote p { font-size: 17px; }
     .testimonials { padding: 64px 24px; }
     .testimonials-grid { grid-template-columns: 1fr; }
     .approach { padding: 64px 24px; }
@@ -944,20 +963,16 @@
 <!-- ══ WER ICH BIN ══ -->
 <section class="about">
   <div class="about-inner">
-    <div class="about-text">
-      <div class="section-eyebrow">Wer ich bin und warum ich das mache</div>
-      <h2 class="section-title">Ich bin Vera,<br><span>KI-Trainerin und Diplom-Psychologin.</span></h2>
-      <p class="section-body">Seit über 12 Jahren gebe ich IT-Trainings und habe dabei immer wieder dasselbe gesehen: Tools werden eingeführt, aber im Alltag nicht wirklich genutzt.</p>
-      <p class="section-body">Nicht, weil die Leute nicht wollen. Sondern weil Unsicherheit, Überforderung oder schlechte erste Erfahrungen im Weg stehen.</p>
-      <p class="section-body">Genau da setze ich an. Ich erkläre nicht einfach nur Tools. Ich arbeite so, dass Menschen anfangen, selbst zu denken, auszuprobieren und sich zuzutrauen, KI sinnvoll einzusetzen.</p>
-    </div>
-    <div class="about-quote-block">
-      <div class="about-quote">
-        <p>Mir ist wichtig, dass niemand aus einem Workshop rausgeht und denkt: <em>„War spannend, aber ohne Vera kriege ich das nicht hin."</em></p>
-        <p>Sondern: <em>„Ich weiß, wo ich anfangen kann. Ich kann das selbst weiterdribbeln."</em></p>
-      </div>
-      <p class="about-closing">Ich nehme Unsicherheiten ernst, gebe Orientierung und schaffe einen Raum, in dem Lernen ohne Druck möglich ist.</p>
-    </div>
+    <div class="section-eyebrow">Wer ich bin und warum ich das mache</div>
+    <h2 class="section-title">Ich bin Vera,<br><span>KI-Trainerin und Diplom-Psychologin.</span></h2>
+    <p class="section-body">Seit über 12 Jahren gebe ich IT-Trainings und habe dabei immer wieder dasselbe gesehen: Tools werden eingeführt, aber im Alltag nicht wirklich genutzt.</p>
+    <p class="section-body">Nicht, weil die Leute nicht wollen. Sondern weil Unsicherheit, Überforderung oder schlechte erste Erfahrungen im Weg stehen.</p>
+    <p class="section-body">Genau da setze ich an. Ich erkläre nicht einfach nur Tools. Ich arbeite so, dass Menschen anfangen, selbst zu denken, auszuprobieren und sich zuzutrauen, KI sinnvoll einzusetzen.</p>
+    <blockquote class="about-pullquote">
+      <p>Mir ist wichtig, dass niemand aus einem Workshop rausgeht und denkt: <em>„War spannend, aber ohne Vera kriege ich das nicht hin."</em></p>
+      <p>Sondern: <em>„Ich weiß, wo ich anfangen kann. Ich kann das selbst weiterdribbeln."</em></p>
+    </blockquote>
+    <p class="about-closing">Ich nehme Unsicherheiten ernst, gebe Orientierung und schaffe einen Raum, in dem Lernen ohne Druck möglich ist.</p>
   </div>
 </section>
 
@@ -994,33 +1009,45 @@
   <div class="testimonials-inner">
     <div class="testimonials-header">
       <div class="section-eyebrow">Stimmen</div>
-      <h2 class="section-title">Was Teilnehmende <span>sagen.</span></h2>
+      <h2 class="section-title">Was Kund:innen und Teilnehmende <span>sagen.</span></h2>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial-card">
         <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Endlich mal kein trockenes IT-Training.</p>
+        <div class="testimonial-text">
+          <p>Vera hat in unserem Unternehmen einige KI-Workshops in 2025 gehalten und auch bei Zweiflern für Begeisterung und Interesse an dieser neuen Technologie gesorgt. Als Initiator dieser Workshops bei Berlin-Chemie habe ich durchweg positives Feedback erhalten.</p>
+          <p class="highlight">Bei Vera kommen die menschliche und fachliche Komponente so zusammen, dass Workshops ihr Ziel erreichen.</p>
+          <p>Und wenn dann unternehmensintern sich die Workshop-Buchungen verselbständigen, kann man nur von Erfolg sprechen.</p>
+        </div>
         <div class="testimonial-divider"></div>
-        <div class="testimonial-role">Teilnehmer, Führungskräfte-Workshop</div>
+        <div class="testimonial-name">Jan Hulshoff Pol</div>
+        <div class="testimonial-role">Head of Multichannel &amp; Digital Healthcare Marketing</div>
+        <div class="testimonial-company">BERLIN-CHEMIE AG</div>
       </div>
       <div class="testimonial-card">
         <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Ich habe mich zum ersten Mal getraut, KI wirklich auszuprobieren.</p>
+        <div class="testimonial-text">
+          <p>Ich habe Vera bei den Office Kompetenztagen in Fulda als Trainerin für KI-Tools und PowerPoint kennengelernt und sie hat mich sofort begeistert.</p>
+          <p>Ihre Trainings waren nicht nur perfekt vorbereitet und strukturiert, sondern auch hervorragend dokumentiert – ein echter Mehrwert für alle Teilnehmenden! Mit ihrer motivierenden und erfrischenden Art schafft sie es, jede Session lebendig und mitreißend zu gestalten.</p>
+          <p class="highlight">Langeweile? Fehlanzeige! Sie bringt komplexe Inhalte verständlich rüber und geht mit bemerkenswerter Ruhe und Geduld auf jede Frage ein.</p>
+          <p>Fachlich top, menschlich inspirierend – eine Trainerin, die man sich nur wünschen kann. Absolute Empfehlung!</p>
+        </div>
         <div class="testimonial-divider"></div>
-        <div class="testimonial-role">Teilnehmerin, Gemini-Workshop</div>
+        <div class="testimonial-name">Annette Reisen</div>
+        <div class="testimonial-role">Executive Assistant</div>
+        <div class="testimonial-company">Sandvik Coromant</div>
       </div>
+      <!-- Weitere Stimme (noch nicht live — Name/Rolle ergänzen, dann auskommentieren entfernen):
       <div class="testimonial-card">
         <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Nach dem Workshop hatte ich direkt drei konkrete Anwendungsfälle, die ich sofort nutzen konnte.</p>
+        <div class="testimonial-text">
+          <p>Vera Schiecke ist nicht „nur" fachlich sehr gut, sie besticht auch mit großen didaktischen Fähigkeiten. Ihr in den Kursen zu folgen ist sehr leicht. Sie erklärt für jeden verständlich alles in Ruhe und hat so viel Leichtigkeit und Humor dabei, dass Lernen eine freudige und entspannte Sache wird. Selbst bei Themen, die für mich noch ganz neu waren (und ich Widerstände hatte), hat sie mir Türen geöffnet und mich inspiriert in ganz neue Welten einzutauchen. Eine wirklich tolle Trainerin!</p>
+        </div>
         <div class="testimonial-divider"></div>
-        <div class="testimonial-role">Teilnehmerin, KI-Einsteiger-Workshop</div>
+        <div class="testimonial-name">[Name folgt]</div>
+        <div class="testimonial-role">[Rolle, Unternehmen]</div>
       </div>
-      <div class="testimonial-card">
-        <div class="testimonial-quote-mark">&ldquo;</div>
-        <p class="testimonial-text">Veras empathische Art und Praxisnähe hat im Team viel Vertrauen geschaffen.</p>
-        <div class="testimonial-divider"></div>
-        <div class="testimonial-role">Teilnehmerin, Copilot-Workshop</div>
-      </div>
+      -->
     </div>
   </div>
 </section>
