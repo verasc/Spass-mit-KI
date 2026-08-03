@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Offene KI-Kurse für Einzelpersonen. Nächster Termin: KI mit Microsoft 365 Copilot, Tagesworkshop am 8. September 2026 in Frankfurt am Main, max. 10 Teilnehmende.">
+<title>Offene Kurse – KI mit Microsoft 365 Copilot | Vera Schiecke</title>
+<link rel="icon" type="image/svg+xml" href="spassmitki_logo1.svg">
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/outfit-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/outfit-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/dm-sans-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/dm-sans-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/dm-sans-italic-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/dm-sans-italic-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+</style>
+<style>
+  :root {
+    --blush: #FFF0F3;
+    --midnight: #0D0221;
+    --maj-light: #4A4FE0;
+    --maj-glow: #8678FF;
+    --raspberry: #CE2D4F;
+    --emerald: #0E7F56;
+    --white: #FFFFFF;
+    --muted: #5D576D;
+    --muted-light: #B8B2C8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--midnight);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  html { scroll-behavior: smooth; }
+
+  /* ══════════════════════════════════════ */
+  /* NAV */
+  /* ══════════════════════════════════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    background: rgba(255,240,243,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(60,46,219,0.06);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: var(--midnight);
+    text-decoration: none;
+  }
+  .nav-logo .dot { color: var(--maj-light); font-size: 22px; font-weight: 700; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--midnight);
+    opacity: 0.6;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--maj-light) !important;
+    color: var(--white) !important;
+    opacity: 1 !important;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--midnight) !important; }
+
+  /* ══════════════════════════════════════ */
+  /* SHARED */
+  /* ══════════════════════════════════════ */
+  .section-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--maj-light);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -0.3px;
+    line-height: 1.15;
+    color: var(--midnight);
+    margin-bottom: 20px;
+  }
+  .section-title span { color: var(--maj-light); }
+  .section-body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--maj-light);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--midnight); }
+  .btn-glow {
+    background: var(--maj-glow);
+    color: var(--midnight);
+  }
+  .btn-glow:hover { background: var(--blush); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--midnight);
+    border: 2px solid rgba(13,2,33,0.15);
+  }
+  .btn-secondary:hover { border-color: var(--maj-light); color: var(--maj-light); }
+
+  /* ══════════════════════════════════════ */
+  /* HERO */
+  /* ══════════════════════════════════════ */
+  .kurs-hero {
+    background: var(--blush);
+    padding: 160px 48px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kurs-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(60,46,219,0.06), transparent 70%);
+  }
+  .kurs-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .kurs-hero-claim {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    letter-spacing: -0.5px;
+    line-height: 1.08;
+    color: var(--midnight);
+    max-width: 780px;
+    margin-bottom: 24px;
+  }
+  .kurs-hero-claim span { color: var(--maj-light); }
+  .kurs-hero-body {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--midnight);
+    max-width: 560px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* KURS-KARTE */
+  /* ══════════════════════════════════════ */
+  .kurs {
+    background: var(--midnight);
+    padding: 90px 48px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kurs::before {
+    content: '';
+    position: absolute;
+    top: -180px; left: -180px;
+    width: 560px; height: 560px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(134,120,255,0.09), transparent 70%);
+  }
+  .kurs-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .kurs-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--maj-glow);
+    border: 1.5px solid rgba(134,120,255,0.35);
+    border-radius: 24px;
+    padding: 7px 18px;
+    margin-bottom: 24px;
+  }
+  .kurs-badge .pulse {
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--maj-glow);
+    display: inline-block;
+  }
+  .kurs-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: -0.5px;
+    line-height: 1.1;
+    color: var(--blush);
+    margin-bottom: 20px;
+    max-width: 760px;
+  }
+  .kurs-lead {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--muted-light);
+    max-width: 680px;
+    padding-left: 22px;
+    border-left: 3px solid var(--maj-glow);
+    margin-bottom: 56px;
+  }
+  .kurs-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+
+  /* Programm */
+  .kurs-col-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--maj-glow);
+    margin-bottom: 24px;
+  }
+  .programm {
+    list-style: none;
+  }
+  .programm li {
+    display: grid;
+    grid-template-columns: 42px 1fr;
+    gap: 4px;
+    align-items: baseline;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .programm li:first-child { border-top: 1px solid rgba(255,255,255,0.07); }
+  .programm-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--maj-glow);
+    opacity: 0.75;
+    letter-spacing: 0.5px;
+  }
+  .programm-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--blush);
+    margin-bottom: 5px;
+  }
+  .programm-body {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--muted-light);
+  }
+  .kurs-note {
+    margin-top: 28px;
+    padding: 18px 22px;
+    border-left: 3px solid var(--maj-glow);
+    background: rgba(134,120,255,0.06);
+    border-radius: 0 12px 12px 0;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--muted-light);
+  }
+  .kurs-note strong {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: var(--blush);
+  }
+
+  /* Faktenbox */
+  .fakten {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(134,120,255,0.14);
+    border-radius: 20px;
+    padding: 32px 30px;
+    position: sticky;
+    top: 96px;
+  }
+  .fakten-datum {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding-bottom: 22px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.09);
+  }
+  .fakten-tag {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    line-height: 0.9;
+    letter-spacing: -1.5px;
+    color: var(--maj-glow);
+  }
+  .fakten-monat {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 1.3;
+    color: var(--blush);
+  }
+  .fakten-monat small {
+    display: block;
+    font-weight: 400;
+    font-size: 13px;
+    color: var(--muted-light);
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0;
+  }
+  .fakten-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    padding: 13px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .fakten-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    white-space: nowrap;
+  }
+  .fakten-value {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--blush);
+    text-align: right;
+  }
+  .fakten-value small {
+    display: block;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: var(--muted-light);
+  }
+  .fakten-cta {
+    margin-top: 26px;
+  }
+  .fakten-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .fakten-hint {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--muted-light);
+    text-align: center;
+    margin-top: 14px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* MITNEHMEN */
+  /* ══════════════════════════════════════ */
+  .mitnehmen {
+    background: var(--white);
+    padding: 90px 48px;
+  }
+  .mitnehmen-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .mitnehmen-header {
+    max-width: 620px;
+    margin-bottom: 44px;
+  }
+  .mitnehmen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .mitnehmen-card {
+    background: var(--blush);
+    border-radius: 20px;
+    padding: 32px 28px;
+  }
+  .mitnehmen-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: var(--maj-light);
+    margin-bottom: 14px;
+  }
+  .mitnehmen-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.3px;
+    color: var(--midnight);
+    margin-bottom: 8px;
+  }
+  .mitnehmen-body {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .fuer-wen {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(13,2,33,0.08);
+  }
+  .fuer-wen-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--midnight);
+    margin-bottom: 14px;
+  }
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+  .check-list li {
+    font-size: 15px;
+    color: var(--midnight);
+    padding: 9px 0;
+    padding-left: 28px;
+    position: relative;
+    border-bottom: 1px solid rgba(13,2,33,0.06);
+  }
+  .check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--maj-light);
+    font-weight: 700;
+  }
+  .check-list--negative li::before {
+    content: '✗';
+    color: var(--muted);
+  }
+
+  /* ══════════════════════════════════════ */
+  /* ANMELDUNG */
+  /* ══════════════════════════════════════ */
+  .anmeldung {
+    background: var(--blush);
+    padding: 100px 48px;
+  }
+  .anmeldung-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .anmeldung-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    color: var(--midnight);
+    margin-bottom: 20px;
+  }
+  .anmeldung-title span { color: var(--maj-light); }
+  .anmeldung-body {
+    font-size: 17px;
+    line-height: 1.7;
+    color: var(--midnight);
+    margin-bottom: 32px;
+  }
+  .anmeldung-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: left;
+    margin-bottom: 36px;
+  }
+  .anmeldung-step {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 22px 22px 24px;
+  }
+  .anmeldung-step-num {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    color: var(--maj-light);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .anmeldung-step-body {
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .anmeldung-fine {
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-top: 22px;
+  }
+  .anmeldung-fine a { color: var(--maj-light); }
+
+  /* ══════════════════════════════════════ */
+  /* WEITERE TERMINE */
+  /* ══════════════════════════════════════ */
+  .weitere {
+    background: var(--white);
+    padding: 72px 48px;
+  }
+  .weitere-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    background: var(--blush);
+    border-radius: 20px;
+    padding: 32px 36px;
+  }
+  .weitere-text-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--midnight);
+    margin-bottom: 6px;
+  }
+  .weitere-text-body {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--muted);
+  }
+  .weitere .btn { flex-shrink: 0; }
+
+  /* ══════════════════════════════════════ */
+  /* FOOTER */
+  /* ══════════════════════════════════════ */
+  footer {
+    background: var(--midnight);
+    padding: 56px 48px 40px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--blush);
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-size: 13px;
+    color: var(--muted-light);
+    margin-bottom: 4px;
+  }
+  .footer-cols {
+    display: flex;
+    gap: 64px;
+  }
+  .footer-col-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--muted-light);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--maj-glow); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted-light);
+  }
+
+  /* ══ Responsive ══ */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links .nav-plain { display: none; }
+    .kurs-hero { padding: 110px 24px 64px; }
+    .kurs-hero-claim { font-size: 34px; }
+    .kurs { padding: 64px 24px 72px; }
+    .kurs-title { font-size: 30px; }
+    .kurs-lead { font-size: 16px; margin-bottom: 40px; }
+    .kurs-grid { grid-template-columns: 1fr; gap: 44px; }
+    .fakten { position: static; order: -1; }
+    .mitnehmen { padding: 64px 24px; }
+    .mitnehmen-grid { grid-template-columns: 1fr; }
+    .fuer-wen { grid-template-columns: 1fr; gap: 32px; }
+    .anmeldung { padding: 64px 24px; }
+    .anmeldung-title { font-size: 32px; }
+    .anmeldung-steps { grid-template-columns: 1fr; }
+    .weitere { padding: 48px 24px; }
+    .weitere-inner { flex-direction: column; align-items: flex-start; padding: 28px; }
+    footer { padding: 40px 24px 32px; }
+    .footer-inner { flex-direction: column; gap: 32px; }
+    .footer-cols { gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Vera Schiecke<span class="dot">.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-plain">Startseite</a></li>
+      <li><a href="#anmeldung" class="nav-cta">Platz vormerken</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="kurs-hero">
+  <div class="kurs-hero-inner">
+    <div class="section-eyebrow">Offene Kurse</div>
+    <h1 class="kurs-hero-claim">Du musst nicht warten, <span>bis deine Firma so weit ist.</span></h1>
+    <p class="kurs-hero-body">Normalerweise trainiere ich ganze Teams. Diese Kurse kannst du einzeln buchen, als Selbstständige, als Einzelperson aus einem Unternehmen oder einfach, weil du es jetzt lernen willst und nicht irgendwann.</p>
+  </div>
+</section>
+
+<!-- ══ KURS ══ -->
+<section class="kurs" id="kurs">
+  <div class="kurs-inner">
+    <div class="kurs-badge"><span class="pulse"></span>Nächster Termin</div>
+    <h2 class="kurs-title">KI mit Microsoft 365 Copilot</h2>
+    <p class="kurs-lead">Ein Tagesworkshop, der praxisnah zeigt, wie Copilot funktioniert, wo seine Stärken und Grenzen liegen und wie du mit gezieltem Prompting zu Ergebnissen kommst, die du wirklich benutzen kannst.</p>
+
+    <div class="kurs-grid">
+      <!-- Programm -->
+      <div>
+        <div class="kurs-col-title">Programm</div>
+        <ul class="programm">
+          <li>
+            <span class="programm-num">01</span>
+            <div>
+              <div class="programm-label">Einstieg</div>
+              <div class="programm-body">Erwartungen, Zeitfresser im Alltag, bisherige Erfahrungen mit KI.</div>
+            </div>
+          </li>
+          <li>
+            <span class="programm-num">02</span>
+            <div>
+              <div class="programm-label">Grundlagen</div>
+              <div class="programm-body">Was Copilot kann und was nicht, wie KI „tickt“, wo die Grenzen liegen.</div>
+            </div>
+          </li>
+          <li>
+            <span class="programm-num">03</span>
+            <div>
+              <div class="programm-label">Prompting</div>
+              <div class="programm-body">Was wirklich funktioniert, um bessere Ergebnisse zu bekommen.</div>
+            </div>
+          </li>
+          <li>
+            <span class="programm-num">04</span>
+            <div>
+              <div class="programm-label">Copilot im Alltag</div>
+              <div class="programm-body">In Outlook, Excel, Researcher und Notebooks.</div>
+            </div>
+          </li>
+          <li>
+            <span class="programm-num">05</span>
+            <div>
+              <div class="programm-label">Copilot in PowerPoint</div>
+              <div class="programm-body">Aus einer Storyline Folien entwickeln.</div>
+            </div>
+          </li>
+          <li>
+            <span class="programm-num">06</span>
+            <div>
+              <div class="programm-label">Bilderstellung mit Copilot</div>
+              <div class="programm-body">Wie steuere ich den Bildstil und bekomme thematisch passende Bilder?</div>
+            </div>
+          </li>
+          <li>
+            <span class="programm-num">07</span>
+            <div>
+              <div class="programm-label">Agents erstellen</div>
+              <div class="programm-body">Wiederkehrende Aufgaben besser im Griff.</div>
+            </div>
+          </li>
+        </ul>
+        <div class="kurs-note">
+          <strong>Voraussetzung:</strong> Du brauchst eine Bezahlversion von Microsoft 365 Copilot. Ohne Lizenz können wir im Workshop nicht gemeinsam arbeiten. Und genau das Ausprobieren macht den Unterschied.
+        </div>
+      </div>
+
+      <!-- Faktenbox -->
+      <aside class="fakten">
+        <div class="fakten-datum">
+          <div class="fakten-tag">08</div>
+          <div class="fakten-monat">September 2026<small>Dienstag, 9–17 Uhr</small></div>
+        </div>
+        <div class="fakten-row">
+          <span class="fakten-label">Ort</span>
+          <span class="fakten-value">Frankfurt am Main</span>
+        </div>
+        <div class="fakten-row">
+          <span class="fakten-label">Dauer</span>
+          <span class="fakten-value">1 Tag<small>9–17 Uhr</small></span>
+        </div>
+        <div class="fakten-row">
+          <span class="fakten-label">Gruppe</span>
+          <span class="fakten-value">max. 10<small>Teilnehmende</small></span>
+        </div>
+        <div class="fakten-row">
+          <span class="fakten-label">Leitung</span>
+          <span class="fakten-value">Vera Schiecke</span>
+        </div>
+        <div class="fakten-row">
+          <span class="fakten-label">Preis</span>
+          <span class="fakten-value">550 €<small>pro Person, zzgl. MwSt.</small></span>
+        </div>
+        <div class="fakten-cta">
+          <a class="btn btn-glow" href="mailto:kontakt@vera-schiecke.de?subject=Interesse%20am%20Copilot-Workshop%20am%208.%20September&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%22KI%20mit%20Microsoft%20365%20Copilot%22%20am%208.%20September%202026%20in%20Frankfurt.%20Schick%20mir%20bitte%20die%20Infos.%0A%0AName%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Platz vormerken</a>
+        </div>
+        <div class="fakten-hint">Unverbindlich. Öffnet dein Mailprogramm mit einer fertigen Nachricht, du schickst sie ab, ich melde mich.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ══ WAS DU MITNIMMST ══ -->
+<section class="mitnehmen">
+  <div class="mitnehmen-inner">
+    <div class="mitnehmen-header">
+      <div class="section-eyebrow">Danach</div>
+      <h2 class="section-title">Was du am Abend <span>können wirst.</span></h2>
+    </div>
+    <div class="mitnehmen-grid">
+      <div class="mitnehmen-card">
+        <div class="mitnehmen-num">01</div>
+        <div class="mitnehmen-title">Du weißt, wann Copilot hilft</div>
+        <div class="mitnehmen-body">Und wann nicht. Das spart mehr Zeit als jeder Prompt-Trick, weil du aufhörst, es an den falschen Stellen zu versuchen.</div>
+      </div>
+      <div class="mitnehmen-card">
+        <div class="mitnehmen-num">02</div>
+        <div class="mitnehmen-title">Du schreibst Prompts, die tragen</div>
+        <div class="mitnehmen-body">Kein Raten mehr. Du weißt, welche Struktur ein brauchbares Ergebnis erzeugt und wie du nachschärfst, wenn es nicht passt.</div>
+      </div>
+      <div class="mitnehmen-card">
+        <div class="mitnehmen-num">03</div>
+        <div class="mitnehmen-title">Du hast es selbst gemacht</div>
+        <div class="mitnehmen-body">Folien aus einer Storyline, Bilder im richtigen Stil, ein eigener Agent für deine wiederkehrenden Aufgaben. Nicht zugeschaut, sondern gebaut.</div>
+      </div>
+    </div>
+
+    <div class="fuer-wen">
+      <div>
+        <div class="fuer-wen-title">Passt zu dir, wenn …</div>
+        <ul class="check-list">
+          <li>du eine Copilot-Lizenz hast und sie kaum nutzt</li>
+          <li>du KI praktisch lernen willst, nicht theoretisch</li>
+          <li>du in einer kleinen Gruppe arbeiten willst, nicht im Webinar mit 200 Leuten</li>
+        </ul>
+      </div>
+      <div>
+        <div class="fuer-wen-title">Passt eher nicht, wenn …</div>
+        <ul class="check-list check-list--negative">
+          <li>du noch keine Bezahlversion von Copilot hast</li>
+          <li>du ein Training für dein ganzes Team suchst, dafür gibt es <a href="index.html#angebot" style="color:var(--maj-light);">Inhouse-Workshops</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ANMELDUNG ══ -->
+<section class="anmeldung" id="anmeldung">
+  <div class="anmeldung-inner">
+    <div class="section-eyebrow" style="text-align:center;">Nächster Schritt</div>
+    <h2 class="anmeldung-title">Zehn Plätze. <span>Erstmal vormerken.</span></h2>
+    <p class="anmeldung-body">Keine Buchungsstrecke, kein Account, kein Newsletter. Du schreibst mir eine Mail, den Rest klären wir persönlich.</p>
+
+    <div class="anmeldung-steps">
+      <div class="anmeldung-step">
+        <div class="anmeldung-step-num">1</div>
+        <div class="anmeldung-step-body">Du klickst auf den Button. Dein Mailprogramm öffnet sich mit einer fertigen Nachricht.</div>
+      </div>
+      <div class="anmeldung-step">
+        <div class="anmeldung-step-num">2</div>
+        <div class="anmeldung-step-body">Du trägst deinen Namen ein und schickst die Mail ab. Mehr nicht.</div>
+      </div>
+      <div class="anmeldung-step">
+        <div class="anmeldung-step-num">3</div>
+        <div class="anmeldung-step-body">Ich melde mich mit allen Infos. Verbindlich wird es erst, wenn du zusagst.</div>
+      </div>
+    </div>
+
+    <a class="btn btn-primary" href="mailto:kontakt@vera-schiecke.de?subject=Interesse%20am%20Copilot-Workshop%20am%208.%20September&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%22KI%20mit%20Microsoft%20365%20Copilot%22%20am%208.%20September%202026%20in%20Frankfurt.%20Schick%20mir%20bitte%20die%20Infos.%0A%0AName%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Platz vormerken</a>
+
+    <p class="anmeldung-fine">Funktioniert der Button nicht? Schreib einfach direkt an <a href="mailto:kontakt@vera-schiecke.de">kontakt@vera-schiecke.de</a>.</p>
+  </div>
+</section>
+
+<!-- ══ WEITERE TERMINE ══ -->
+<section class="weitere">
+  <div class="weitere-inner">
+    <div>
+      <div class="weitere-text-title">Termin passt nicht?</div>
+      <div class="weitere-text-body">Weitere offene Kurse sind in Planung. Sag mir kurz Bescheid, woran du Interesse hast, dann melde ich mich, sobald ein passender Termin steht.</div>
+    </div>
+    <a class="btn btn-secondary" href="mailto:kontakt@vera-schiecke.de?subject=Interesse%20an%20weiteren%20KI-Kursterminen&amp;body=Hallo%20Vera%2C%0A%0Abitte%20gib%20mir%20Bescheid%2C%20wenn%20neue%20offene%20Kurstermine%20feststehen.%0A%0AName%3A%0AInteresse%20an%3A%0AM%C3%B6glicher%20Zeitraum%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Interesse melden</a>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Vera Schiecke<span style="color: var(--maj-glow);">.</span></div>
+      <div class="footer-sub">KI-Trainerin und Diplom-Psychologin</div>
+      <div class="footer-sub">Berlin · vera-schiecke.de</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Angebot</div>
+        <a href="kurse.html">Offene Kurse</a>
+        <a href="index.html#angebot">KI-Einstieg</a>
+        <a href="index.html#angebot">KI-Bildgenerierung</a>
+        <a href="index.html#angebot">Präsentationen mit KI</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Kontakt</div>
+        <a href="https://www.linkedin.com/in/vera-schiecke" target="_blank">LinkedIn</a>
+        <a href="mailto:kontakt@vera-schiecke.de">E-Mail</a>
+        <a href="index.html#kontakt">Gespräch buchen</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Vera Schiecke</span>
+    <span><a href="impressum.html" style="color:var(--muted-light);text-decoration:none;">Impressum</a> · <a href="datenschutz.html" style="color:var(--muted-light);text-decoration:none;">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "KI mit Microsoft 365 Copilot",
+  "description": "Tagesworkshop: Wie Copilot funktioniert, wo seine Stärken und Grenzen liegen und wie durch gezieltes Prompting bessere Ergebnisse erzielt werden.",
+  "provider": {
+    "@type": "Person",
+    "name": "Vera Schiecke",
+    "url": "https://vera-schiecke.de"
+  },
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "onsite",
+    "startDate": "2026-09-08T09:00:00+02:00",
+    "endDate": "2026-09-08T17:00:00+02:00",
+    "maximumAttendeeCapacity": 10,
+    "location": {
+      "@type": "Place",
+      "name": "Frankfurt am Main",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Frankfurt am Main",
+        "addressCountry": "DE"
+      }
+    },
+    "instructor": {
+      "@type": "Person",
+      "name": "Vera Schiecke"
+    }
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "550",
+    "priceCurrency": "EUR",
+    "valueAddedTaxIncluded": false,
+    "availability": "https://schema.org/InStock",
+    "url": "https://vera-schiecke.de/kurse.html"
+  }
+}
+</script>
+
+</body>
+</html>
