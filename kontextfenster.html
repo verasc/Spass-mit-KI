@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Das Kontextfenster erklärt: Was die KI bei jeder Antwort liest, was den Platz belegt und warum ein volles Fenster schlechtere Antworten liefert.">
+<title>Das Kontextfenster | Vera Schiecke</title>
+<link rel="icon" type="image/svg+xml" href="spassmitki_logo1.svg">
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/outfit-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/outfit-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/dm-sans-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/dm-sans-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+</style>
+<style>
+:root{
+  /* Helle Flächen */
+  --shell:#FFF0F3; --paper:#FFFFFF; --ink:#0D0221; --soft:#61586F; --line:#EBD9DF;
+  /* Dunkle Flächen */
+  --deep:#0D0221; --deep2:#190B31; --edge:#3C2E56; --dim:#A79DBB; --bright:#FFF0F3;
+  /* Fünf Kategorien (l = auf Hell, g = Glow auf Dunkel) */
+  --l1:#3A50E0; --l2:#0E7F56; --l3:#C0821A; --l4:#CE2D4F; --l5:#6B3FA0;
+  --g1:#7C8AFF; --g2:#3DDC97; --g3:#EDB24A; --g4:#F26C85;
+  --display:"Outfit","Trebuchet MS",system-ui,sans-serif;
+  --body:"DM Sans","Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;overflow:hidden;background:#EBDCE1}
+body{font-family:var(--body);color:var(--ink);-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit}
+
+.fit{position:fixed;inset:0;overflow:hidden}
+.deck{width:1600px;height:900px;position:absolute;top:50%;left:50%;
+  transform-origin:center center;background:var(--shell);
+  overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.28)}
+
+.slide{position:absolute;inset:0;padding:112px 72px 108px;
+  opacity:0;visibility:hidden;transition:opacity .34s ease,visibility .34s}
+.slide.on{opacity:1;visibility:visible}
+.slide.dark{background:var(--deep);color:var(--bright)}
+
+h1{font-family:var(--display);font-weight:700;letter-spacing:-.028em;line-height:.97;margin:0}
+h2{font-family:var(--display);font-weight:600;letter-spacing:-.024em;line-height:1.05;margin:0}
+
+/* ── Behälter ── */
+.tankwrap{display:flex;gap:14px}
+.scale{width:40px;flex:none;position:relative;font-family:var(--mono);font-size:12px;color:var(--soft)}
+.scale span{position:absolute;right:0;transform:translateY(-50%);display:flex;align-items:center;gap:6px}
+.scale span::after{content:"";width:7px;height:1px;background:var(--line)}
+.tank{flex:none;border:2px solid var(--ink);
+  background:repeating-linear-gradient(45deg,transparent 0 8px,rgba(13,2,33,.07) 8px 9px),var(--paper);
+  display:flex;flex-direction:column-reverse;overflow:hidden;position:relative}
+.layer{height:0;flex:none;border:none;padding:0;width:100%;cursor:pointer;opacity:.4;
+  transition:height .55s cubic-bezier(.22,.9,.28,1),opacity .25s ease}
+.layer:hover{opacity:.8}
+.layer.on{opacity:1}
+.layer[data-k="1"]{background:var(--l1)} .layer[data-k="2"]{background:var(--l2)}
+.layer[data-k="3"]{background:var(--l3)} .layer[data-k="4"]{background:var(--l4)}
+.layer[data-k="5"]{background:var(--l5)}
+.freetag{position:absolute;left:0;right:0;top:0;padding-top:16px;text-align:center;pointer-events:none;
+  font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+
+/* ── S1 ── */
+.s1{display:grid;grid-template-columns:1.12fr .88fr;gap:80px;align-items:center;height:100%;padding-bottom:44px}
+.s1 h1{font-size:82px;max-width:15ch}
+.s1 h1 em{font-style:normal;color:var(--l4)}
+.s1 .say{font-size:25px;line-height:1.45;max-width:38ch;margin:32px 0 0}
+.s1 .say b{font-family:var(--mono);font-weight:400;font-size:.92em;border-bottom:2px solid var(--l1);padding-bottom:1px}
+.s1 .aside{display:flex;flex-direction:column;align-items:center;gap:20px}
+.s1 .cap{font-family:var(--mono);font-size:14px;color:var(--soft);text-align:center;line-height:1.7;margin:0}
+.s1 .cap strong{display:block;color:var(--ink);font-size:17px;font-weight:500}
+
+/* ── S2 ── */
+.s2{display:grid;grid-template-columns:400px 1fr;gap:76px;height:100%;align-items:start}
+.readbar{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
+.readbar span{font-family:var(--mono);font-size:12px;letter-spacing:.11em;text-transform:uppercase;color:var(--soft)}
+.readbar b{font-family:var(--display);font-weight:700;font-size:36px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.tankfoot{font-family:var(--mono);font-size:12px;color:var(--soft);line-height:1.6;margin:16px 0 0 54px;max-width:300px}
+.s2 h2{font-size:40px;max-width:24ch;margin-bottom:26px}
+.terms{display:grid;gap:2px;background:var(--line);border:1px solid var(--line)}
+.termbtn{display:flex;align-items:center;gap:14px;width:100%;text-align:left;
+  background:var(--paper);border:none;padding:13px 18px;cursor:pointer;
+  font-family:var(--mono);font-size:19px;color:var(--soft);transition:background .18s,color .18s}
+.termbtn:hover{background:var(--shell);color:var(--ink)}
+.termbtn.on{background:var(--ink);color:#fff}
+.termbtn i{width:14px;height:14px;flex:none;border-radius:2px}
+.termbtn u{margin-left:auto;text-decoration:none;font-size:14px;opacity:.6}
+.detail{margin-top:26px;min-height:186px;border-top:2px solid var(--ink);padding-top:22px}
+.detail .gloss{font-family:var(--display);font-weight:600;font-size:27px;line-height:1.25;letter-spacing:-.015em;margin:0 0 14px;max-width:30ch}
+.detail p{margin:0;font-size:18px;line-height:1.55;max-width:52ch;color:var(--soft)}
+.detail .idle{font-family:var(--mono);font-size:15px;color:var(--soft);letter-spacing:.04em}
+
+/* ── S3 (Qualität) ── */
+.s3{height:100%;display:flex;flex-direction:column}
+.s3 h2{font-size:40px;max-width:28ch;margin-bottom:14px}
+.s3 .task{font-size:19px;color:var(--dim);margin:0 0 34px;max-width:64ch;line-height:1.5}
+.sliderbox{margin-bottom:34px}
+.sliderbox label{display:block;font-family:var(--mono);font-size:13px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.fillbar{height:36px;border:2px solid var(--edge);background:var(--deep2);position:relative;overflow:hidden}
+.fillbar i{position:absolute;inset:0 auto 0 0;width:20%;background:linear-gradient(90deg,var(--g1),var(--g4));transition:width .15s linear}
+.fillbar b{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:15px;font-variant-numeric:tabular-nums}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;margin:16px 0 0;background:transparent;cursor:pointer}
+input[type=range]::-webkit-slider-runnable-track{height:3px;background:var(--edge)}
+input[type=range]::-moz-range-track{height:3px;background:var(--edge)}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;border-radius:50%;background:var(--bright);border:none;margin-top:-13.5px}
+input[type=range]::-moz-range-thumb{width:30px;height:30px;border-radius:50%;background:var(--bright);border:none}
+input[type=range]:focus-visible{outline:2px solid var(--g3);outline-offset:8px}
+
+.striplab{display:block;font-family:var(--mono);font-size:13px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.strip{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;border:2px solid var(--edge);background:var(--edge);height:196px}
+.zone{position:relative;background:var(--deep2);overflow:hidden;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:6px}
+.zfill{position:absolute;left:0;right:0;bottom:0;height:0;opacity:.22;transition:height .18s linear,background .18s linear}
+.zlab{position:absolute;top:14px;left:16px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.zval{position:relative;font-family:var(--display);font-weight:700;font-size:60px;line-height:1;
+  letter-spacing:-.03em;font-variant-numeric:tabular-nums;transition:color .18s linear}
+.zsub{position:relative;font-family:var(--mono);font-size:13px;color:var(--dim)}
+.znote{position:absolute;bottom:14px;font-family:var(--mono);font-size:12.5px;color:var(--g3);opacity:0;transition:opacity .18s}
+.znote.on{opacity:1}
+.verdict{margin:24px 0 0;font-size:20px;line-height:1.45;font-weight:500;min-height:2.9em;max-width:70ch}
+
+/* ── S4 (Tipps) ── */
+.s4{height:100%;display:flex;flex-direction:column;justify-content:center;padding-bottom:44px}
+.s4 h2{font-size:46px;margin-bottom:44px;max-width:20ch}
+.tipgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--line);border:1px solid var(--line)}
+.tip{background:var(--paper);padding:30px 26px 34px}
+.tip .ic{width:32px;height:32px;margin-bottom:22px}
+.tip h3{font-family:var(--display);font-weight:600;font-size:22px;line-height:1.2;margin:0 0 10px}
+.tip p{margin:0;font-size:16px;color:var(--soft);line-height:1.5}
+.s4 .last{margin:44px 0 0;font-family:var(--display);font-weight:600;font-size:30px;letter-spacing:-.02em;max-width:30ch}
+
+/* ── HUD ── */
+.hud{position:absolute;left:72px;right:72px;bottom:36px;display:flex;align-items:center;gap:26px;z-index:12}
+.chaps{display:flex;gap:26px}
+.chap{background:none;border:none;padding:6px 0;cursor:pointer;font-family:var(--mono);font-size:13px;
+  letter-spacing:.06em;color:var(--soft);opacity:.5;border-bottom:2px solid transparent;transition:opacity .2s,border-color .2s}
+.chap:hover{opacity:.9}
+.chap.on{opacity:1;color:var(--ink);border-bottom-color:var(--ink)}
+.hud.dark .chap{color:var(--dim)}
+.hud.dark .chap.on{color:var(--bright);border-bottom-color:var(--bright)}
+.arrows{margin-left:auto;display:flex;gap:10px}
+.arw{width:52px;height:52px;border:2px solid var(--ink);background:transparent;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;transition:background .16s,color .16s,opacity .16s}
+.arw:hover:not(:disabled){background:var(--ink);color:var(--shell)}
+.arw:disabled{opacity:.2;cursor:default}
+.arw svg{width:20px;height:20px}
+.hud.dark .arw{border-color:var(--bright);color:var(--bright)}
+.hud.dark .arw:hover:not(:disabled){background:var(--bright);color:var(--deep)}
+
+.home{position:absolute;top:30px;left:72px;z-index:14;text-decoration:none;
+  font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.01em;color:var(--ink)}
+.home span{color:var(--l1);font-size:1.5em;line-height:0;vertical-align:-.05em}
+.home:hover{opacity:.65}
+.home.dark{color:var(--bright)}
+.home.dark span{color:var(--g1)}
+.backlink{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:15px;
+  color:var(--l1);text-decoration:none;border-bottom:1px solid var(--l1);padding-bottom:2px}
+.backlink:hover{color:var(--ink);border-bottom-color:var(--ink)}
+.srcbtn{position:absolute;top:34px;right:72px;z-index:14;background:none;border:none;cursor:pointer;
+  font-family:var(--mono);font-size:12px;letter-spacing:.09em;color:var(--soft);text-transform:uppercase}
+.srcbtn:hover{color:var(--ink)}
+.srcbtn.dark{color:var(--dim)}
+.srcbtn.dark:hover{color:var(--bright)}
+.overlay{position:absolute;inset:0;background:rgba(13,2,33,.97);color:var(--bright);padding:80px 72px;
+  opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s;z-index:30}
+.overlay.on{opacity:1;visibility:visible}
+.overlay h3{font-family:var(--display);font-weight:600;font-size:30px;margin:0 0 26px}
+.overlay ul{margin:0;padding-left:20px;font-size:16px;line-height:1.95;max-width:92ch}
+.overlay a{color:var(--g1)}
+.closex{position:absolute;top:34px;right:72px;background:none;border:none;color:var(--bright);cursor:pointer;
+  font-family:var(--mono);font-size:12px;letter-spacing:.09em;text-transform:uppercase}
+
+:focus-visible{outline:2px solid var(--l3);outline-offset:3px}
+.hint{position:fixed;bottom:10px;left:0;right:0;text-align:center;font-family:var(--mono);font-size:11px;color:var(--soft);display:none}
+@media (max-aspect-ratio:1/1){.hint{display:block}}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<div class="fit">
+<div class="deck" id="deck">
+
+  <!-- 1 ─────────────────────────────────── -->
+  <section class="slide s1 on" data-s="0">
+    <div>
+      <h1>Die KI hat kein Gedächtnis. Sie hat ein <em>Fenster</em>.</h1>
+      <p class="say">Das <b>Kontextfenster</b> ist der gesamte Text, den sie bei jeder Antwort neu liest. Alles, was nicht drin steht, existiert für sie nicht.</p>
+    </div>
+    <div class="aside">
+      <div class="tankwrap">
+        <div class="scale" aria-hidden="true">
+          <span style="top:0%">100</span><span style="top:50%">50</span><span style="top:100%">0</span>
+        </div>
+        <div class="tank" style="width:230px;height:440px"><div class="freetag">Leer</div></div>
+      </div>
+      <p class="cap"><strong>200.000 Token</strong>rund 400 Seiten Text<br>Klingt viel. Ist schnell voll.</p>
+    </div>
+  </section>
+
+  <!-- 2 ─────────────────────────────────── -->
+  <section class="slide s2" data-s="1">
+    <div>
+      <div class="readbar"><span>Belegt</span><b id="readout">70 %</b></div>
+      <div class="tankwrap">
+        <div class="scale" aria-hidden="true">
+          <span style="top:0%">100</span><span style="top:25%">75</span><span style="top:50%">50</span>
+          <span style="top:75%">25</span><span style="top:100%">0</span>
+        </div>
+        <div class="tank" id="tank" style="width:300px;height:520px">
+          <div class="freetag">Frei</div>
+          <button class="layer" data-k="1" data-go="0" aria-label="System-Prompt"></button>
+          <button class="layer" data-k="2" data-go="1" aria-label="Tool-Definitionen"></button>
+          <button class="layer" data-k="3" data-go="2" aria-label="Uploads und Memory"></button>
+          <button class="layer" data-k="4" data-go="3" aria-label="Konversationsverlauf"></button>
+          <button class="layer" data-k="5" data-go="4" aria-label="Tool-Ergebnisse"></button>
+        </div>
+      </div>
+      <p class="tankfoot">Beispielhafte Aufteilung nach einigen Runden mit Recherche. Die Anteile schwanken stark je nach Chat.</p>
+    </div>
+
+    <div>
+      <h2>Fünf Dinge belegen den Platz.<br>Nur eines davon sind deine Fragen.</h2>
+      <div class="terms" id="terms">
+        <button class="termbtn" data-go="0"><i style="background:var(--l1)"></i>System-Prompt<u>2 %</u></button>
+        <button class="termbtn" data-go="1"><i style="background:var(--l2)"></i>Tool-Definitionen<u>7 %</u></button>
+        <button class="termbtn" data-go="2"><i style="background:var(--l3)"></i>Uploads &amp; Memory<u>9 %</u></button>
+        <button class="termbtn" data-go="3"><i style="background:var(--l4)"></i>Konversationsverlauf<u>14 %</u></button>
+        <button class="termbtn" data-go="4"><i style="background:var(--l5)"></i>Tool-Ergebnisse<u>38 %</u></button>
+      </div>
+      <div class="detail" id="detail" aria-live="polite">
+        <p class="idle">Begriff anklicken →</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 ─────────────────────────────────── -->
+  <section class="slide s3 dark" data-s="2">
+    <h2>Voll heißt nicht nur „bald voll“. Voll heißt: schlechtere Antworten.</h2>
+    <p class="task">Stell dir vor, irgendwo im Fenster steht ein wichtiger Satz — eine Zahl aus deinem PDF, eine Vorgabe von dir. Die Frage ist: <strong>Findet die KI ihn beim Antworten wieder?</strong></p>
+
+    <div class="sliderbox">
+      <label for="fill">Regler ziehen: Wie voll ist das Fenster?</label>
+      <div class="fillbar"><i id="fillFill"></i><b id="fillVal">20 %</b></div>
+      <input type="range" id="fill" min="5" max="95" value="20" step="1" aria-label="Füllstand in Prozent">
+    </div>
+
+    <span class="striplab">Trefferquote — je nachdem, wo der Satz im Fenster steht</span>
+    <div class="strip">
+      <div class="zone" data-c="a">
+        <span class="zlab">Weit vorn</span>
+        <div class="zfill"></div>
+        <b class="zval" id="vA">96 %</b>
+        <span class="zsub">wiedergefunden</span>
+      </div>
+      <div class="zone" data-c="b">
+        <span class="zlab">In der Mitte</span>
+        <div class="zfill"></div>
+        <b class="zval" id="vB">84 %</b>
+        <span class="zsub">wiedergefunden</span>
+        <span class="znote" id="nB">Effekt: Lost in the Middle</span>
+      </div>
+      <div class="zone" data-c="c">
+        <span class="zlab">Ganz am Ende</span>
+        <div class="zfill"></div>
+        <b class="zval" id="vC">98 %</b>
+        <span class="zsub">wiedergefunden</span>
+      </div>
+    </div>
+
+    <p class="verdict" id="verdict">Noch viel Luft. Die KI überblickt alles gut.</p>
+  </section>
+
+  <!-- 4 ─────────────────────────────────── -->
+  <section class="slide s4" data-s="3">
+    <h2>Vier Dinge, die sofort helfen</h2>
+    <div class="tipgrid">
+      <div class="tip">
+        <svg class="ic" viewBox="0 0 34 34" fill="none"><rect x="1.5" y="1.5" width="31" height="31" stroke="var(--l1)" stroke-width="2"/></svg>
+        <h3>Neues Thema, neuer Chat</h3>
+        <p>Ein leeres Fenster wirkt schneller als jeder bessere Prompt.</p>
+      </div>
+      <div class="tip">
+        <svg class="ic" viewBox="0 0 34 34" fill="none"><path d="M4 25h26M4 17h18M4 9h10" stroke="var(--l2)" stroke-width="2.4" stroke-linecap="square"/></svg>
+        <h3>Weniger anbinden</h3>
+        <p>Ein gezielter Auszug schlägt zehn vollständige PDFs.</p>
+      </div>
+      <div class="tip">
+        <svg class="ic" viewBox="0 0 34 34" fill="none"><path d="M17 4v26M17 30l-8-8M17 30l8-8" stroke="var(--l3)" stroke-width="2.4" stroke-linecap="square"/></svg>
+        <h3>Wichtigstes zuletzt</h3>
+        <p>Erst das Material, dann die Frage. Das Ende wird am besten gelesen.</p>
+      </div>
+      <div class="tip">
+        <svg class="ic" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="13" stroke="var(--l4)" stroke-width="2.4"/><path d="M17 10v8l5 4" stroke="var(--l4)" stroke-width="2.4" stroke-linecap="square"/></svg>
+        <h3>Zusammenfassen lassen</h3>
+        <p>Stand zusammenfassen, damit neu starten. Fachwort: Compaction.</p>
+      </div>
+    </div>
+    <p class="last">Nicht das größere Kontextfenster gewinnt. Sondern das aufgeräumtere.</p>
+    <p style="margin:0"><a class="backlink" href="index.html">Das übe ich mit Teams. Mehr dazu auf vera-schiecke.de</a></p>
+  </section>
+
+  <a class="home" id="home" href="index.html">Vera Schiecke<span>.</span></a>
+  <button class="srcbtn" id="srcOpen" type="button">Quellen</button>
+
+  <nav class="hud" id="hud">
+    <div class="chaps" id="chaps"></div>
+    <div class="arrows">
+      <button class="arw" id="prev" type="button" aria-label="Zurück" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 4L7 12l8 8"/></svg>
+      </button>
+      <button class="arw" id="next" type="button" aria-label="Weiter">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M9 4l8 8-8 8"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="overlay" id="overlay">
+    <button class="closex" id="srcClose" type="button">Schließen ✕</button>
+    <h3>Quellen</h3>
+    <ul>
+      <li>Anthropic — <a target="_blank" rel="noopener" href="https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents">Effective context engineering for AI agents</a></li>
+      <li>Chroma Research — <a target="_blank" rel="noopener" href="https://research.trychroma.com/context-rot">Context Rot</a> (18 Modelle getestet)</li>
+      <li>Liu et al., Stanford — <a target="_blank" rel="noopener" href="https://cs.stanford.edu/~nfliu/papers/lost-in-the-middle.arxiv2023.pdf">Lost in the Middle</a></li>
+      <li>Greg Kamradt — <a target="_blank" rel="noopener" href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack">Needle in a Haystack</a></li>
+      <li>Drew Breunig — <a target="_blank" rel="noopener" href="https://www.dbreunig.com/2025/06/22/how-contexts-fail-and-how-to-fix-them.html">How Contexts Fail</a></li>
+      <li>Sämtliche Prozentwerte auf diesen Seiten sind schematisch und dienen der Veranschaulichung — sie stammen nicht aus einer einzelnen Messreihe. Die dargestellten Verläufe entsprechen aber dem, was die genannten Untersuchungen übereinstimmend zeigen.</li>
+    </ul>
+  </div>
+
+</div>
+</div>
+<p class="hint">Für Querformat gebaut — Gerät drehen</p>
+
+<script>
+(function(){
+  var deck = document.getElementById('deck');
+  function fit(){
+    var s = Math.min(window.innerWidth / 1600, window.innerHeight / 900);
+    deck.style.transform = 'translate(-50%,-50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit); fit();
+
+  /* ── Kapitel ── */
+  var slides = [].slice.call(document.querySelectorAll('.slide'));
+  var names  = ['Was ist das', 'Was liegt drin', 'Qualität', 'Was tun'];
+  var chaps  = document.getElementById('chaps');
+  var prev = document.getElementById('prev'), next = document.getElementById('next');
+  var hud = document.getElementById('hud'), srcOpen = document.getElementById('srcOpen'),
+      home = document.getElementById('home'), s = 0;
+
+  names.forEach(function(n, k){
+    var b = document.createElement('button');
+    b.className = 'chap'; b.type = 'button'; b.textContent = n;
+    b.addEventListener('click', function(){ show(k); });
+    chaps.appendChild(b);
+  });
+  var chapBtns = [].slice.call(chaps.children);
+
+  function show(k){
+    s = Math.max(0, Math.min(slides.length - 1, k));
+    slides.forEach(function(el, j){ el.classList.toggle('on', j === s); });
+    chapBtns.forEach(function(b, j){ b.classList.toggle('on', j === s); });
+    prev.disabled = s === 0; next.disabled = s === slides.length - 1;
+    var dark = slides[s].classList.contains('dark');
+    hud.classList.toggle('dark', dark);
+    srcOpen.classList.toggle('dark', dark);
+    home.classList.toggle('dark', dark);
+    if (s === 1) fillTank();
+  }
+  prev.addEventListener('click', function(){ show(s - 1); });
+  next.addEventListener('click', function(){ show(s + 1); });
+
+  /* ── Schichten ── */
+  var H = [2,7,9,14,38];
+  var DATA = [
+    ['Die Betriebsanleitung, die der Hersteller mitgibt.',
+     'Darin steht, wie die KI antworten soll: Ton, Format, Grenzen. Du siehst diesen Text nie — gelesen wird er trotzdem bei jeder einzelnen Antwort.'],
+    ['Bedienungsanleitungen für alles, was die KI benutzen kann.',
+     'Websuche, Kalender, Dateien: Jedes angebundene Werkzeug bringt eine Beschreibung mit, wofür es da ist. Der Standard dafür heißt MCP. Wer viele Dienste anbindet, verliert hier spürbar Platz — auch für Werkzeuge, die nie zum Einsatz kommen.'],
+    ['Deine Dateien — und was sich die KI über dich gemerkt hat.',
+     'Ein hochgeladenes PDF landet vollständig im Fenster, nicht nur die Stelle, um die es dir geht. Memory sind Notizen, die über einzelne Chats hinaus bestehen bleiben.'],
+    ['Das komplette bisherige Gespräch, jedes Mal neu gelesen.',
+     'Zwischen zwei Antworten merkt sich das Modell nichts. Damit es weiß, worum es geht, wird der ganze Verlauf mitgeschickt. Deine erste Frage liegt am Ende noch genauso da wie deine letzte.'],
+    ['Alles, was die Werkzeuge zurückliefern.',
+     'Eine einzige Websuche kippt zehn Seiten Ergebnisse ins Fenster. In langen Arbeitsgesprächen ist das der mit Abstand größte Posten — oft größer als alles andere zusammen.']
+  ];
+  var layers  = [].slice.call(document.querySelectorAll('.layer'));
+  var termBtn = [].slice.call(document.querySelectorAll('.termbtn'));
+  var detail  = document.getElementById('detail');
+  var filled  = false;
+
+  function fillTank(){
+    if (filled) return; filled = true;
+    layers.forEach(function(l, k){
+      setTimeout(function(){ l.style.height = H[k] + '%'; }, 90 + k * 130);
+    });
+  }
+  function pick(k){
+    layers.forEach(function(l, j){ l.classList.toggle('on', j === k); });
+    termBtn.forEach(function(b, j){ b.classList.toggle('on', j === k); });
+    detail.innerHTML = '<p class="gloss">' + DATA[k][0] + '</p><p>' + DATA[k][1] + '</p>';
+  }
+  termBtn.concat(layers).forEach(function(el){
+    el.addEventListener('click', function(){ pick(+el.dataset.go); });
+  });
+
+  /* ── Regler ── */
+  var sl = document.getElementById('fill'), ff = document.getElementById('fillFill'),
+      fv = document.getElementById('fillVal'), vd = document.getElementById('verdict'),
+      nB = document.getElementById('nB');
+  var Z = {
+    a:{v:document.getElementById('vA'), z:document.querySelector('[data-c="a"]')},
+    b:{v:document.getElementById('vB'), z:document.querySelector('[data-c="b"]')},
+    c:{v:document.getElementById('vC'), z:document.querySelector('[data-c="c"]')}
+  };
+  function tone(p){ return p >= 75 ? '#3DDC97' : (p >= 55 ? '#EDB24A' : '#F26C85'); }
+  function paint(k, p){
+    var t = Z[k], col = tone(p);
+    t.v.textContent = p + ' %';
+    t.v.style.color = p >= 75 ? '#FFF0F3' : col;
+    var f = t.z.querySelector('.zfill');
+    f.style.height = p + '%';
+    f.style.background = col;
+  }
+  function upd(){
+    var f = +sl.value;
+    ff.style.width = f + '%'; fv.textContent = f + ' %';
+    var mid = Math.round(100 - f * 0.78);
+    paint('a', Math.round(100 - f * 0.22));
+    paint('b', mid);
+    paint('c', Math.round(100 - f * 0.12));
+    nB.classList.toggle('on', mid < 70);
+    vd.textContent = f < 35 ? 'Noch viel Luft. Die KI überblickt alles gut.'
+      : f < 60 ? 'Es wird eng. Details aus der Mitte gehen zuerst verloren — meist ohne dass die KI es merkt oder sagt.'
+      : f < 82 ? 'Kritisch. Die Antworten klingen weiter flüssig und sicher, übersehen aber Wichtiges aus der Mitte.'
+               : 'Das Fenster quillt über. Jetzt hilft kein besserer Prompt mehr — nur aufräumen oder neu anfangen.';
+  }
+  sl.addEventListener('input', upd); upd();
+
+  /* ── Quellen ── */
+  var ov = document.getElementById('overlay');
+  srcOpen.addEventListener('click', function(){ ov.classList.add('on'); });
+  document.getElementById('srcClose').addEventListener('click', function(){ ov.classList.remove('on'); });
+
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){ ov.classList.remove('on'); return; }
+    if (e.target.tagName === 'INPUT') return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' '){ e.preventDefault(); show(s + 1); }
+    if (e.key === 'ArrowLeft'  || e.key === 'PageUp'){ e.preventDefault(); show(s - 1); }
+  });
+
+  show(0);
+})();
+</script>
+</body>
+</html>
