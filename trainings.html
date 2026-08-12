@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Alle KI-Trainings von Vera Schiecke auf einen Blick: Inhouse-Workshops für Teams zu Copilot, Gemini, Bildgenerierung und Präsentationen sowie offene Kurse für Einzelpersonen.">
+<title>Trainings im Überblick – Inhouse-Workshops und offene Kurse | Vera Schiecke</title>
+<link rel="icon" type="image/svg+xml" href="spassmitki_logo1.svg">
+<style>
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/outfit-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/outfit-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/dm-sans-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url(fonts/dm-sans-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/dm-sans-italic-latin-ext.woff2) format('woff2');
+    unicode-range: U+0100-02AF, U+0304, U+0308, U+0329, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: 'DM Sans';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(fonts/dm-sans-italic-latin.woff2) format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+</style>
+<style>
+  :root {
+    --blush: #FFF0F3;
+    --midnight: #0D0221;
+    --deep-blue: #101A6B;
+    --maj-light: #3A50E0;
+    --maj-glow: #7C8AFF;
+    --raspberry: #CE2D4F;
+    --emerald: #0E7F56;
+    --white: #FFFFFF;
+    --muted: #5D576D;
+    --muted-light: #B8B2C8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--midnight);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  html { scroll-behavior: smooth; }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--maj-light);
+    outline-offset: 3px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* NAV */
+  /* ══════════════════════════════════════ */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 20px 48px;
+    background: rgba(16,26,107,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(124,138,255,0.15);
+  }
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: var(--blush);
+    text-decoration: none;
+  }
+  .nav-logo .dot { color: var(--maj-glow); font-size: 22px; font-weight: 700; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--blush);
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; }
+  .nav-cta {
+    background: var(--maj-glow) !important;
+    color: var(--deep-blue) !important;
+    opacity: 1 !important;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--blush) !important; }
+  nav a:focus-visible { outline-color: var(--maj-glow); }
+
+  /* ══════════════════════════════════════ */
+  /* SHARED */
+  /* ══════════════════════════════════════ */
+  .section-eyebrow {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--maj-light);
+    margin-bottom: 16px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.25s;
+    border: none;
+    cursor: pointer;
+  }
+  .btn-primary {
+    background: var(--maj-light);
+    color: var(--white);
+  }
+  .btn-primary:hover { background: var(--midnight); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--midnight);
+    border: 2px solid rgba(13,2,33,0.15);
+  }
+  .btn-secondary:hover { border-color: var(--maj-light); color: var(--maj-light); }
+  .check-list {
+    list-style: none;
+    padding: 0;
+  }
+  .check-list li {
+    font-size: 15px;
+    color: var(--midnight);
+    padding: 9px 0;
+    padding-left: 28px;
+    position: relative;
+    border-bottom: 1px solid rgba(13,2,33,0.06);
+  }
+  .check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--maj-light);
+    font-weight: 700;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* SEITENKOPF */
+  /* ══════════════════════════════════════ */
+  .t-hero {
+    background: var(--deep-blue);
+    padding: 160px 48px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .t-hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(124,138,255,0.14), transparent 70%);
+  }
+  .t-hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .t-hero .section-eyebrow { color: var(--maj-glow); }
+  .t-hero-claim {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 52px;
+    letter-spacing: -0.5px;
+    line-height: 1.08;
+    color: var(--blush);
+    max-width: 780px;
+    margin-bottom: 24px;
+  }
+  .t-hero-body {
+    font-size: 17px;
+    line-height: 1.7;
+    color: rgba(255,240,243,0.85);
+    max-width: 540px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* HINWEISSTREIFEN */
+  /* ══════════════════════════════════════ */
+  .t-strip {
+    background: var(--blush);
+    padding: 44px 48px 0;
+  }
+  .t-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: var(--white);
+    border-left: 3px solid var(--maj-light);
+    border-radius: 0 12px 12px 0;
+    padding: 18px 24px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 6px 16px;
+  }
+  .t-strip-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--maj-light);
+    white-space: nowrap;
+  }
+  .t-strip-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--midnight);
+  }
+  .t-strip-link {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--maj-light);
+    text-decoration: none;
+    white-space: nowrap;
+    margin-left: auto;
+  }
+  .t-strip-link:hover { text-decoration: underline; }
+
+  /* ══════════════════════════════════════ */
+  /* KACHELRASTER */
+  /* ══════════════════════════════════════ */
+  .t-trainings {
+    background: var(--blush);
+    padding: 36px 48px 96px;
+  }
+  .t-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .t-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 36px 34px;
+    box-shadow: 0 4px 24px rgba(13,2,33,0.04);
+    display: flex;
+    flex-direction: column;
+    scroll-margin-top: 96px;
+  }
+  .t-labels {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    margin-bottom: 18px;
+  }
+  .t-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .t-label--stark {
+    font-weight: 700;
+    color: var(--maj-light);
+    border: 1.5px solid rgba(58,80,224,0.35);
+    border-radius: 24px;
+    padding: 5px 14px;
+  }
+  .t-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 25px;
+    letter-spacing: -0.4px;
+    line-height: 1.2;
+    color: var(--midnight);
+    margin-bottom: 8px;
+  }
+  .t-card-sub {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--maj-light);
+    margin-bottom: 18px;
+  }
+  .t-card-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  .t-mini-label {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--maj-light);
+    margin-bottom: 10px;
+  }
+  .t-card .check-list { margin-bottom: 28px; }
+  .t-card .check-list li { font-size: 14.5px; line-height: 1.5; }
+
+  .t-foot { margin-top: auto; }
+  .t-fakten {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    column-gap: 16px;
+  }
+  .t-fakten dt {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 12px 0 11px;
+    border-bottom: 1px solid rgba(13,2,33,0.06);
+  }
+  .t-fakten dd {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--midnight);
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(13,2,33,0.06);
+  }
+  .t-fakten dt:first-of-type,
+  .t-fakten dd:first-of-type { border-top: 1px solid rgba(13,2,33,0.06); }
+  .t-preis {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin: 24px 0 20px;
+  }
+  .t-preis-value {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.3px;
+    color: var(--midnight);
+  }
+  .t-preis-note {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .t-card .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .t-hinweis {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--muted);
+    margin-top: 14px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* BÄNDER */
+  /* ══════════════════════════════════════ */
+  .t-bands {
+    background: var(--white);
+    padding: 84px 48px 90px;
+  }
+  .t-bands-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .t-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+  }
+  .t-band-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.3px;
+    color: var(--midnight);
+    margin-bottom: 8px;
+  }
+  .t-band-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+    max-width: 680px;
+  }
+  .t-band .btn { flex-shrink: 0; }
+  .t-band--fill {
+    margin-top: 44px;
+    background: var(--blush);
+    border-radius: 20px;
+    padding: 32px 36px;
+  }
+
+  /* ══════════════════════════════════════ */
+  /* FOOTER */
+  /* ══════════════════════════════════════ */
+  footer {
+    background: var(--midnight);
+    padding: 56px 48px 40px;
+  }
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .footer-logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    letter-spacing: -0.5px;
+    color: var(--blush);
+    margin-bottom: 8px;
+  }
+  .footer-sub {
+    font-size: 13px;
+    color: var(--muted-light);
+    margin-bottom: 4px;
+  }
+  .footer-cols {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 64px;
+  }
+  .footer-col-title {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted-light);
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--muted-light);
+    margin-bottom: 8px;
+    transition: color 0.2s;
+  }
+  .footer-col a:hover { color: var(--maj-glow); }
+  footer a:focus-visible { outline-color: var(--maj-glow); }
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--muted-light);
+  }
+
+  /* ══ Responsive ══ */
+  @media (max-width: 900px) {
+    nav { padding: 16px 24px; }
+    .nav-links .nav-plain { display: none; }
+    .t-hero { padding: 110px 24px 64px; }
+    .t-hero-claim { font-size: 34px; }
+    .t-strip { padding: 32px 24px 0; }
+    .t-strip-link { margin-left: 0; }
+    .t-trainings { padding: 28px 24px 72px; }
+    .t-bands { padding: 64px 24px 72px; }
+    .t-band { flex-direction: column; align-items: flex-start; }
+    .t-band--fill { padding: 28px; margin-top: 36px; }
+    footer { padding: 40px 24px 32px; }
+    .footer-inner { flex-direction: column; gap: 32px; }
+    .footer-cols { gap: 40px; }
+    .footer-bottom { flex-direction: column; gap: 8px; }
+  }
+  @media (max-width: 820px) {
+    .t-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .t-hero-claim { font-size: 30px; }
+    .t-card { padding: 28px 22px; }
+    .t-fakten { grid-template-columns: 84px 1fr; column-gap: 12px; }
+    .t-strip-inner { padding: 16px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<header>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Vera Schiecke<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-plain">Startseite</a></li>
+        <li><a href="index.html#kontakt" class="nav-cta">Gespräch buchen</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+<!-- ══ SEITENKOPF ══ -->
+<section class="t-hero">
+  <div class="t-hero-inner">
+    <div class="section-eyebrow">Trainings</div>
+    <h1 class="t-hero-claim">KI-Workshops</h1>
+    <p class="t-hero-body">Die meisten Trainings buche ich als Inhouse-Workshop für ein ganzes Team. Einzelne Termine gibt es zusätzlich als offenen Kurs, den du allein buchen kannst. Jedes Inhouse-Training wird auf euer Tool, eure Aufgaben und euer Vorwissen zugeschnitten. Die Beschreibungen hier sind der Ausgangspunkt, nicht das fertige Paket.</p>
+  </div>
+</section>
+
+<!-- ══ HINWEISSTREIFEN ══ -->
+<section class="t-strip" aria-label="Nächster offener Termin">
+  <div class="t-strip-inner">
+    <span class="t-strip-label">Nächster offener Termin</span>
+    <span class="t-strip-text">KI mit Microsoft 365 Copilot, 8. September 2026 in Frankfurt am Main.</span>
+    <a class="t-strip-link" href="kurse.html">Zum Kurs</a>
+  </div>
+</section>
+
+<!-- ══ KACHELRASTER ══ -->
+<section class="t-trainings" aria-label="Trainings">
+  <div class="t-grid">
+
+    <!-- Karte 1 -->
+    <article class="t-card" id="ki-einstieg">
+      <div class="t-labels">
+        <span class="t-label">Inhouse</span>
+        <span class="t-label">Vor Ort oder online</span>
+      </div>
+      <h2 class="t-card-title">KI-Einstieg mit Copilot oder Gemini</h2>
+      <p class="t-card-sub">Der Workshop, nach dem die Lizenzen nicht mehr brachliegen.</p>
+      <p class="t-card-body">Wir arbeiten mit dem Tool, das bei euch tatsächlich läuft, und mit Aufgaben, die bei euch tatsächlich anfallen: Mails, Protokolle, Recherche, Textentwürfe, Zusammenfassungen, Exceltabellen, PowerPoint-Präsentationen. Kein Feature-Rundgang, sondern Ausprobieren am eigenen Alltag.</p>
+      <div class="t-mini-label">Themen</div>
+      <ul class="check-list">
+        <li>Wie KI arbeitet und warum sie Fehler macht</li>
+        <li>Prompts, die verlässlich brauchbare Ergebnisse bringen</li>
+        <li>Eigene Aufgaben aus dem Arbeitsalltag durchspielen</li>
+        <li>Ergebnisse prüfen statt blind übernehmen</li>
+      </ul>
+      <div class="t-foot">
+        <dl class="t-fakten">
+          <dt>Für wen</dt>
+          <dd>Teams mit und ohne Vorkenntnissen</dd>
+          <dt>Tools</dt>
+          <dd>Microsoft 365 Copilot oder Gemini</dd>
+          <dt>Dauer</dt>
+          <dd>nach Absprache (halber bis ganzer Tag)</dd>
+        </dl>
+        <div class="t-preis">
+          <span class="t-preis-value">Angebot auf Anfrage</span>
+          <span class="t-preis-note">passend zu Teamgröße und Umfang</span>
+        </div>
+        <a class="btn btn-primary" href="mailto:kontakt@vera-schiecke.de?subject=Anfrage%20Inhouse-Workshop%20KI-Einstieg&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20einen%20Inhouse-Workshop%20%22KI-Einstieg%20mit%20Copilot%20oder%20Gemini%22.%0A%0AUnternehmen%3A%0AAnzahl%20Teilnehmende%3A%0AEingesetztes%20Tool%3A%0AWunschzeitraum%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Workshop anfragen</a>
+        <p class="t-hinweis">Unverbindlich. Öffnet dein Mailprogramm mit einer fertigen Nachricht.</p>
+      </div>
+    </article>
+
+    <!-- Karte 2 -->
+    <article class="t-card" id="praesentationen">
+      <div class="t-labels">
+        <span class="t-label">Inhouse</span>
+        <span class="t-label">Vor Ort oder online</span>
+      </div>
+      <h2 class="t-card-title">Präsentationen mit KI</h2>
+      <p class="t-card-sub">PowerPoint-Präsentationen per KI einfacher erstellen.</p>
+      <p class="t-card-body">Copilot und Gemini liefern erst dann brauchbare Folien, wenn Struktur und Input stimmen. Deshalb schauen wir uns den gesamten Workflow beim Erstellen einer Präsentation an.</p>
+      <div class="t-mini-label">Themen</div>
+      <ul class="check-list">
+        <li>Von der Storyline zur Folienstruktur</li>
+        <li>Ansprechende, bearbeitbare Folien per KI erstellen lassen</li>
+        <li>Bestehende Folien mit KI überarbeiten und aufwerten</li>
+        <li>Einen Bildstil festlegen und über die Folien durchhalten</li>
+      </ul>
+      <div class="t-foot">
+        <dl class="t-fakten">
+          <dt>Für wen</dt>
+          <dd>Teams, die regelmäßig präsentieren</dd>
+          <dt>Tools</dt>
+          <dd>PowerPoint mit Copilot oder Google Slides mit Gemini</dd>
+          <dt>Dauer</dt>
+          <dd>nach Absprache (halber bis ganzer Tag)</dd>
+        </dl>
+        <div class="t-preis">
+          <span class="t-preis-value">Angebot auf Anfrage</span>
+          <span class="t-preis-note">passend zu Teamgröße und Umfang</span>
+        </div>
+        <a class="btn btn-primary" href="mailto:kontakt@vera-schiecke.de?subject=Anfrage%20Inhouse-Workshop%20Pr%C3%A4sentationen%20mit%20KI&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20einen%20Inhouse-Workshop%20%22Pr%C3%A4sentationen%20mit%20KI%22.%0A%0AUnternehmen%3A%0AAnzahl%20Teilnehmende%3A%0AEingesetztes%20Tool%3A%0AWunschzeitraum%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Workshop anfragen</a>
+        <p class="t-hinweis">Unverbindlich. Öffnet dein Mailprogramm mit einer fertigen Nachricht.</p>
+      </div>
+    </article>
+
+    <!-- Karte 3 -->
+    <article class="t-card" id="bildgenerierung">
+      <div class="t-labels">
+        <span class="t-label">Inhouse</span>
+        <span class="t-label">Vor Ort oder online</span>
+      </div>
+      <h2 class="t-card-title">KI-Bildgenerierung</h2>
+      <p class="t-card-sub">Von der Idee zum Bild, das ihr wirklich verwenden könnt.</p>
+      <p class="t-card-body">Bild-KI ist schnell ausprobiert und schwer gut zu benutzen. In diesem Workshop geht es darum, ohne stundenlanges Rumprobieren zu Bildern zu kommen, die den Qualitätsanspruch erfüllen, für Präsentationen, Social Media oder erste Entwürfe.</p>
+      <div class="t-mini-label">Themen</div>
+      <ul class="check-list">
+        <li>Welches Tool sich wofür eignet</li>
+        <li>Eine Bildidee in einen Prompt übersetzen</li>
+        <li>Einen Stil festlegen und über mehrere Bilder halten</li>
+        <li>Nachbearbeiten und hochskalieren</li>
+      </ul>
+      <div class="t-foot">
+        <dl class="t-fakten">
+          <dt>Für wen</dt>
+          <dd>Marketing, Kommunikation und alle, die regelmäßig Bildmaterial brauchen</dd>
+          <dt>Tools</dt>
+          <dd>Midjourney, Recraft, Magnific</dd>
+          <dt>Dauer</dt>
+          <dd>halber Tag</dd>
+        </dl>
+        <div class="t-preis">
+          <span class="t-preis-value">Angebot auf Anfrage</span>
+          <span class="t-preis-note">passend zu Teamgröße und Umfang</span>
+        </div>
+        <a class="btn btn-primary" href="mailto:kontakt@vera-schiecke.de?subject=Anfrage%20Inhouse-Workshop%20KI-Bildgenerierung&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20einen%20Inhouse-Workshop%20%22KI-Bildgenerierung%22.%0A%0AUnternehmen%3A%0AAnzahl%20Teilnehmende%3A%0AWunschzeitraum%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Workshop anfragen</a>
+        <p class="t-hinweis">Unverbindlich. Öffnet dein Mailprogramm mit einer fertigen Nachricht.</p>
+      </div>
+    </article>
+
+    <!-- Karte 4 -->
+    <article class="t-card" id="copilot-kurs">
+      <div class="t-labels">
+        <span class="t-label t-label--stark">Offener Kurs</span>
+        <span class="t-label">Frankfurt am Main</span>
+      </div>
+      <h2 class="t-card-title">KI mit Microsoft 365 Copilot</h2>
+      <p class="t-card-sub">Ein Tagesworkshop, den du einzeln buchen kannst.</p>
+      <p class="t-card-body">Für alle, die nicht warten wollen, bis die eigene Firma so weit ist: Selbstständige, Einzelpersonen aus Unternehmen, kleine Gruppen. Wir gehen durch Grundlagen, Prompting, Copilot in Outlook, Excel und PowerPoint, Bilderstellung und einen eigenen Agent. Alles selbst gebaut, nicht zugeschaut.</p>
+      <div class="t-mini-label">Themen</div>
+      <ul class="check-list">
+        <li>Was Copilot kann, was nicht und wo die Grenzen liegen</li>
+        <li>Prompting, das wirklich funktioniert</li>
+        <li>Copilot in Outlook, Excel, PowerPoint</li>
+        <li>Richtig mit KI recherchieren und durchsuchbare Wissenssammlung erstellen</li>
+        <li>Eigene Agents erstellen, um wiederkehrende Aufgaben zu vereinfachen</li>
+      </ul>
+      <div class="t-foot">
+        <dl class="t-fakten">
+          <dt>Für wen</dt>
+          <dd>Einzelpersonen mit M365 Copilot-Lizenz</dd>
+          <dt>Termin</dt>
+          <dd>Dienstag, 8. September 2026, 9–17 Uhr</dd>
+          <dt>Gruppe</dt>
+          <dd>max. 10 Teilnehmende</dd>
+        </dl>
+        <div class="t-preis">
+          <span class="t-preis-value">550 € pro Person</span>
+          <span class="t-preis-note">zzgl. MwSt.</span>
+        </div>
+        <a class="btn btn-secondary" href="kurse.html">Alle Infos zum Kurs</a>
+        <p class="t-hinweis">Voraussetzung: eine Bezahlversion von Microsoft 365 Copilot.</p>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ══ BÄNDER ══ -->
+<section class="t-bands">
+  <div class="t-bands-inner">
+
+    <div class="t-band">
+      <div>
+        <h2 class="t-band-title">Und danach? Begleitung über mehrere Termine.</h2>
+        <p class="t-band-body">Ein Workshop bringt den ersten Aha-Moment. Routine entsteht erst im Laufe der Zeit. Auf Wunsch begleite ich Teams über mehrere Termine hinweg: Vertiefung zu einzelnen Aufgaben, Sprechstunden für die Fragen, die erst im Alltag auftauchen, Nachschärfen dort, wo es hakt. Das kombiniere ich mit jedem der Trainings oben.</p>
+      </div>
+      <a class="btn btn-secondary" href="index.html#kontakt">Im Erstgespräch klären</a>
+    </div>
+
+    <div class="t-band t-band--fill">
+      <div>
+        <h2 class="t-band-title">Nichts Passendes dabei?</h2>
+        <p class="t-band-body">Kein Training kommt von der Stange, und die Liste hier ist nicht abschließend. Wenn ihr ein Thema habt, das hier nicht steht, sagt mir kurz, worum es geht. Im kostenlosen Erstgespräch schauen wir auf Ausgangslage, Hürden und sinnvolle nächste Schritte.</p>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Kostenloses Erstgespräch buchen</a>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">Vera Schiecke<span style="color: var(--maj-glow);">.</span></div>
+      <div class="footer-sub">KI-Trainerin und Diplom-Psychologin</div>
+      <div class="footer-sub">Berlin · vera-schiecke.de</div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title">Angebot</div>
+        <a href="trainings.html">Alle Trainings</a>
+        <a href="kurse.html">Offene Kurse</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Wissen</div>
+        <a href="kontextfenster.html">Was ist ein Kontextfenster?</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Kontakt</div>
+        <a href="https://www.linkedin.com/in/vera-schiecke" target="_blank">LinkedIn</a>
+        <a href="mailto:kontakt@vera-schiecke.de">E-Mail</a>
+        <a href="index.html#kontakt">Gespräch buchen</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Vera Schiecke</span>
+    <span><a href="impressum.html" style="color:var(--muted-light);text-decoration:none;">Impressum</a> · <a href="datenschutz.html" style="color:var(--muted-light);text-decoration:none;">Datenschutz</a></span>
+  </div>
+</footer>
+
+</body>
+</html>

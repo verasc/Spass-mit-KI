@@ -79,6 +79,16 @@
   }
   html { scroll-behavior: smooth; }
 
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--maj-light);
+    outline-offset: 3px;
+  }
+  nav a:focus-visible,
+  .kurs-hero a:focus-visible,
+  .kurs a:focus-visible,
+  footer a:focus-visible { outline-color: var(--maj-glow); }
+
   /* ══════════════════════════════════════ */
   /* NAV */
   /* ══════════════════════════════════════ */
@@ -234,6 +244,18 @@
     color: rgba(255,240,243,0.85);
     max-width: 560px;
   }
+  .kurs-hero-back {
+    display: inline-block;
+    margin-top: 24px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--maj-glow);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(124,138,255,0.4);
+    padding-bottom: 2px;
+  }
+  .kurs-hero-back:hover { color: var(--blush); border-bottom-color: var(--blush); }
 
   /* ══════════════════════════════════════ */
   /* KURS-KARTE */
@@ -587,6 +609,12 @@
     line-height: 1.6;
     color: var(--muted);
   }
+  .anmeldung-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
   .anmeldung-fine {
     font-size: 13.5px;
     line-height: 1.65;
@@ -594,6 +622,7 @@
     margin-top: 22px;
   }
   .anmeldung-fine a { color: var(--maj-light); }
+  .print-only { display: none; }
 
   /* ══════════════════════════════════════ */
   /* WEITERE TERMINE */
@@ -656,6 +685,7 @@
   }
   .footer-cols {
     display: flex;
+    flex-wrap: wrap;
     gap: 64px;
   }
   .footer-col-title {
@@ -711,6 +741,134 @@
     .footer-cols { gap: 40px; }
     .footer-bottom { flex-direction: column; gap: 8px; }
   }
+
+  /* ══════════════════════════════════════ */
+  /* DRUCKANSICHT */
+  /* ══════════════════════════════════════ */
+  @media print {
+    @page { margin: 15mm; }
+
+    nav,
+    .kurs-hero-back,
+    .kurs-badge,
+    .btn,
+    .anmeldung-actions,
+    .anmeldung-steps,
+    .anmeldung-fine,
+    .fakten-cta,
+    .fakten-hint,
+    .weitere,
+    .footer-cols,
+    .footer-bottom span:last-child { display: none !important; }
+    .kurs-hero::before,
+    .kurs::before { display: none !important; }
+
+    html { scroll-behavior: auto; }
+    body {
+      background: #fff;
+      color: #000;
+      overflow: visible;
+      font-size: 10.5pt;
+    }
+    .print-only { display: block; }
+    .print-contact {
+      margin-top: 10px;
+      font-size: 10.5pt;
+      font-weight: 600;
+      color: #000;
+    }
+
+    .kurs-hero,
+    .kurs,
+    .mitnehmen,
+    .anmeldung,
+    footer {
+      background: #fff !important;
+      padding: 0 !important;
+      margin: 0 0 22px !important;
+    }
+    footer { border-top: 1px solid #ccc; padding-top: 12px !important; }
+
+    /* Helle Schrift auf ehemals dunklem Grund */
+    .kurs-hero-claim,
+    .kurs-hero-body,
+    .kurs-title,
+    .kurs-lead,
+    .kurs-note,
+    .kurs-note strong,
+    .programm-label,
+    .programm-body,
+    .fakten-monat,
+    .fakten-monat small,
+    .fakten-value,
+    .fakten-value small,
+    .footer-logo,
+    .footer-sub,
+    .footer-bottom { color: #000 !important; }
+    .footer-logo span,
+    .kurs-hero-claim span,
+    .section-eyebrow,
+    .kurs-col-title,
+    .programm-num,
+    .fakten-tag,
+    .fakten-label,
+    .mitnehmen-num,
+    .section-title span,
+    .anmeldung-title span { color: #101A6B !important; }
+
+    .kurs-hero-claim { font-size: 20pt; margin-bottom: 12px; }
+    .kurs-hero-body { max-width: none; }
+    .kurs-title { font-size: 17pt; margin-bottom: 12px; }
+    .kurs-lead {
+      font-size: 11pt;
+      max-width: none;
+      margin-bottom: 20px;
+      border-left-color: #101A6B;
+    }
+    .section-title,
+    .anmeldung-title { font-size: 15pt; }
+    .anmeldung-inner,
+    .mitnehmen-header { text-align: left; max-width: none; }
+
+    /* Faktenbox zuerst, danach das Programm */
+    .kurs-grid {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+    }
+    .fakten {
+      order: -1;
+      position: static;
+      width: 100%;
+      max-width: 320px;
+      background: none !important;
+      border: 1px solid #999;
+      border-radius: 0;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+      break-inside: avoid;
+    }
+    .fakten-datum,
+    .fakten-row { border-bottom-color: #ccc; }
+    .fakten-tag { font-size: 30pt; }
+
+    .programm li,
+    .kurs-note,
+    .mitnehmen-card,
+    .fuer-wen > div,
+    .anmeldung-inner { break-inside: avoid; }
+    .programm li { border-bottom-color: #ccc; }
+    .programm li:first-child { border-top-color: #ccc; }
+    .kurs-note {
+      background: none !important;
+      border-left-color: #101A6B;
+    }
+    .mitnehmen-card { background: none !important; padding: 0 0 12px; }
+    .mitnehmen-grid { gap: 18px; }
+    .fuer-wen { border-top-color: #ccc; }
+    .check-list li { border-bottom-color: #ccc; }
+  }
 </style>
 </head>
 <body>
@@ -721,6 +879,7 @@
     <a href="index.html" class="nav-logo">Vera Schiecke<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="index.html" class="nav-plain">Startseite</a></li>
+      <li><a href="trainings.html" class="nav-plain">Trainings</a></li>
       <li><a href="#anmeldung" class="nav-cta">Platz vormerken</a></li>
     </ul>
   </div>
@@ -732,6 +891,7 @@
     <div class="section-eyebrow">Offene Kurse</div>
     <h1 class="kurs-hero-claim">Du musst nicht warten, <span>bis deine Firma so weit ist.</span></h1>
     <p class="kurs-hero-body">Normalerweise trainiere ich ganze Teams. Diese Kurse kannst du einzeln buchen, als Selbstständige, als Einzelperson aus einem Unternehmen oder einfach, weil du es jetzt lernen willst und nicht irgendwann.</p>
+    <a class="kurs-hero-back" href="trainings.html">Zurück zur Übersicht aller Trainings</a>
   </div>
 </section>
 
@@ -875,7 +1035,7 @@
         <div class="fuer-wen-title">Passt eher nicht, wenn …</div>
         <ul class="check-list check-list--negative">
           <li>du noch keine Bezahlversion von Copilot hast</li>
-          <li>du ein Training für dein ganzes Team suchst, dafür gibt es <a href="index.html#angebot" style="color:var(--maj-light);">Inhouse-Workshops</a></li>
+          <li>du ein Training für dein ganzes Team suchst, dafür gibt es <a href="trainings.html" style="color:var(--maj-light);">Inhouse-Workshops</a></li>
         </ul>
       </div>
     </div>
@@ -904,9 +1064,14 @@
       </div>
     </div>
 
-    <a class="btn btn-primary" href="mailto:kontakt@vera-schiecke.de?subject=Interesse%20am%20Copilot-Workshop%20am%208.%20September&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%22KI%20mit%20Microsoft%20365%20Copilot%22%20am%208.%20September%202026%20in%20Frankfurt.%0A%0AName%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Platz vormerken</a>
+    <div class="anmeldung-actions">
+      <a class="btn btn-primary" href="mailto:kontakt@vera-schiecke.de?subject=Interesse%20am%20Copilot-Workshop%20am%208.%20September&amp;body=Hallo%20Vera%2C%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20den%20Workshop%20%22KI%20mit%20Microsoft%20365%20Copilot%22%20am%208.%20September%202026%20in%20Frankfurt.%0A%0AName%3A%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Platz vormerken</a>
+      <button type="button" class="btn btn-secondary" onclick="window.print()">Als PDF speichern</button>
+      <a class="btn btn-secondary" href="mailto:?subject=KI-Workshop%20am%208.%20September%202026%20in%20Frankfurt&amp;body=Hallo%2C%0A%0Aich%20habe%20einen%20Tagesworkshop%20%22KI%20mit%20Microsoft%20365%20Copilot%22%20gefunden%2C%20der%20am%208.%20September%202026%20in%20Frankfurt%20am%20Main%20stattfindet.%20Kleine%20Gruppe%20mit%20maximal%2010%20Teilnehmenden%2C%20550%20%E2%82%AC%20pro%20Person%20zzgl.%20MwSt.%0A%0AAlle%20Infos%3A%20https%3A%2F%2Fvera-schiecke.de%2Fkurse.html%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">Per E-Mail weiterleiten</a>
+    </div>
 
     <p class="anmeldung-fine">Funktioniert der Button nicht? Schreib einfach direkt an <a href="mailto:kontakt@vera-schiecke.de">kontakt@vera-schiecke.de</a>.</p>
+    <p class="print-only print-contact">Anmeldung und Rückfragen: kontakt@vera-schiecke.de · Alle Infos: vera-schiecke.de/kurse.html</p>
   </div>
 </section>
 
@@ -932,10 +1097,12 @@
     <div class="footer-cols">
       <div class="footer-col">
         <div class="footer-col-title">Angebot</div>
+        <a href="trainings.html">Alle Trainings</a>
         <a href="kurse.html">Offene Kurse</a>
-        <a href="index.html#angebot">KI-Einstieg</a>
-        <a href="index.html#angebot">KI-Bildgenerierung</a>
-        <a href="index.html#angebot">Präsentationen mit KI</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Wissen</div>
+        <a href="kontextfenster.html">Was ist ein Kontextfenster?</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Kontakt</div>

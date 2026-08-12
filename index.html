@@ -80,6 +80,17 @@
     overflow-x: hidden;
   }
 
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid var(--maj-light);
+    outline-offset: 3px;
+  }
+  nav a:focus-visible,
+  .hero a:focus-visible,
+  .offer a:focus-visible,
+  .approach a:focus-visible,
+  footer a:focus-visible { outline-color: var(--maj-glow); }
+
   /* ══════════════════════════════════════ */
   /* NAV */
   /* ══════════════════════════════════════ */
@@ -426,6 +437,33 @@
     color: var(--muted-light);
     margin-bottom: 20px;
   }
+  a.offer-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+  }
+  .offer-card-sub {
+    font-size: 14.5px;
+    line-height: 1.65;
+    color: var(--muted-light);
+    margin-bottom: 24px;
+  }
+  .offer-card-more {
+    margin-top: auto;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--maj-glow);
+  }
+  .offer-all {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .offer .offer-all .btn-secondary {
+    color: var(--blush);
+    border-color: rgba(255,240,243,0.3);
+  }
+  .offer .offer-all .btn-secondary:hover { border-color: var(--maj-glow); color: var(--maj-glow); }
 
   /* ══════════════════════════════════════ */
   /* APPROACH */
@@ -720,27 +758,6 @@
   }
 
   /* ══════════════════════════════════════ */
-  /* OFFER FOLLOWUP */
-  /* ══════════════════════════════════════ */
-  .offer-followup {
-    margin-top: 32px;
-    padding: 24px 28px;
-    border-left: 3px solid var(--maj-glow);
-    background: rgba(124,138,255,0.05);
-    border-radius: 0 12px 12px 0;
-  }
-  .offer-followup-text {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--muted-light);
-  }
-  .offer-followup-text strong {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    color: var(--blush);
-  }
-
-  /* ══════════════════════════════════════ */
   /* TEASER OFFENE KURSE */
   /* ══════════════════════════════════════ */
   .offer-open {
@@ -931,7 +948,7 @@
   <div class="nav-inner">
     <div class="nav-logo">Vera Schiecke<span class="dot">.</span></div>
     <ul class="nav-links">
-      <li><a href="kurse.html">Offene Kurse</a></li>
+      <li><a href="trainings.html">Trainings</a></li>
       <li><a href="#kontakt" class="nav-cta" onclick="openCalendar(); return false;">Gespräch buchen</a></li>
     </ul>
   </div>
@@ -1082,27 +1099,28 @@
       <p class="section-body">Jedes Training wird für euer Team gebaut. Woran ihr euch orientieren könnt:</p>
     </div>
     <div class="offer-grid">
-      <div class="offer-card">
+      <a class="offer-card" href="trainings.html#ki-einstieg">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-        <div class="offer-card-title">KI-Einstieg mit Gemini oder Copilot</div>
-        <div class="offer-card-body">Praxisnaher Einstieg in das Tool, das bei euch im Einsatz ist. Mit echten Aufgaben aus dem Arbeitsalltag, direktem Ausprobieren und sinnvollen Prompts, so dass Lizenzen nach dem Workshop nicht mehr ungenutzt liegen bleiben.</div>
-      </div>
-      <div class="offer-card">
-        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
-        <div class="offer-card-title">KI-Bildgenerierung</div>
-        <div class="offer-card-body">Von der Idee zum brauchbaren Bild. Mit Bild-KI-Tools wie Midjourney, Recraft oder Magnific schnell zu Bildern kommen, die ihr wirklich verwenden könnt, für Präsentationen, Social Media oder erste Entwürfe, ohne stundenlanges Rumprobieren.</div>
-      </div>
-      <div class="offer-card">
+        <div class="offer-card-title">KI-Einstieg mit Copilot oder Gemini</div>
+        <div class="offer-card-sub">Der Workshop, nach dem die Lizenzen nicht mehr brachliegen.</div>
+        <div class="offer-card-more">Zum Training</div>
+      </a>
+      <a class="offer-card" href="trainings.html#praesentationen">
         <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
         <div class="offer-card-title">Präsentationen mit KI</div>
-        <div class="offer-card-body">Mehr als nur Prompts. Ich unterstütze Teams dabei, Präsentationen sauber aufzusetzen: Struktur entwickeln, Bildstil für die Folien definieren, gemeinsam passende Prompts bauen. Denn Copilot & Co. liefern erst dann gute Ergebnisse, wenn Struktur und Input stimmen.</div>
-      </div>
+        <div class="offer-card-sub">PowerPoint-Präsentationen per KI einfacher erstellen.</div>
+        <div class="offer-card-more">Zum Training</div>
+      </a>
+      <a class="offer-card" href="trainings.html#bildgenerierung">
+        <div class="offer-icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8678FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></div>
+        <div class="offer-card-title">KI-Bildgenerierung</div>
+        <div class="offer-card-sub">Von der Idee zum Bild, das ihr wirklich verwenden könnt.</div>
+        <div class="offer-card-more">Zum Training</div>
+      </a>
     </div>
 
-    <div class="offer-followup">
-      <div class="offer-followup-text">
-        <strong>Und danach?</strong> Auf Wunsch begleite ich Teams über mehrere Termine hinweg, damit aus dem ersten Aha-Moment im Workshop echte Routine im Alltag wird.
-      </div>
+    <div class="offer-all">
+      <a href="trainings.html" class="btn btn-secondary">Alle Trainings ansehen</a>
     </div>
 
     <div class="offer-open">
@@ -1188,10 +1206,8 @@ function openCalendar() {
     <div class="footer-cols">
       <div class="footer-col">
         <div class="footer-col-title">Angebot</div>
+        <a href="trainings.html">Alle Trainings</a>
         <a href="kurse.html">Offene Kurse</a>
-        <a href="#angebot">KI-Einstieg</a>
-        <a href="#angebot">KI-Bildgenerierung</a>
-        <a href="#angebot">Präsentationen mit KI</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Wissen</div>
