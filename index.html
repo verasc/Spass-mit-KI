@@ -758,52 +758,6 @@
   }
 
   /* ══════════════════════════════════════ */
-  /* TEASER OFFENE KURSE */
-  /* ══════════════════════════════════════ */
-  .offer-open {
-    margin-top: 20px;
-    background: rgba(124,138,255,0.08);
-    border: 1px solid rgba(124,138,255,0.22);
-    border-radius: 20px;
-    padding: 30px 34px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 32px;
-    transition: all 0.3s;
-  }
-  .offer-open:hover { border-color: rgba(124,138,255,0.45); }
-  .offer-open-eyebrow {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 11px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--maj-glow);
-    margin-bottom: 10px;
-  }
-  .offer-open-title {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: -0.5px;
-    color: var(--blush);
-    margin-bottom: 8px;
-  }
-  .offer-open-body {
-    font-size: 15px;
-    line-height: 1.65;
-    color: var(--muted-light);
-    max-width: 620px;
-  }
-  .offer-open .btn {
-    flex-shrink: 0;
-    background: var(--maj-glow);
-    color: var(--midnight);
-  }
-  .offer-open .btn:hover { background: var(--blush); }
-
-  /* ══════════════════════════════════════ */
   /* ÜBER VERA */
   /* ══════════════════════════════════════ */
   .about {
@@ -911,7 +865,6 @@
     .offer { padding: 64px 24px; }
     .offer-grid { grid-template-columns: 1fr; }
     .offer-feature { grid-template-columns: 1fr; }
-    .offer-open { flex-direction: column; align-items: flex-start; padding: 26px; }
     .about { padding: 64px 24px; }
     .about-pullquote p { font-size: 17px; }
     .testimonials { padding: 64px 24px; }
@@ -1123,14 +1076,6 @@
       <a href="trainings.html" class="btn btn-secondary">Alle Trainings ansehen</a>
     </div>
 
-    <div class="offer-open">
-      <div>
-        <div class="offer-open-eyebrow">Für Einzelpersonen</div>
-        <div class="offer-open-title">Offene Kurse, ohne Firma im Rücken</div>
-        <div class="offer-open-body">Du willst nicht warten, bis dein Unternehmen ein Training bucht? Für Selbstständige und Einzelpersonen biete ich offene Kurse in kleinen Gruppen an. Nächster Termin: <strong style="color:var(--blush);">Microsoft 365 Copilot am 8. September 2026 in Frankfurt.</strong></div>
-      </div>
-      <a href="kurse.html" class="btn">Kurse ansehen</a>
-    </div>
   </div>
 </section>
 
@@ -1207,7 +1152,6 @@ function openCalendar() {
       <div class="footer-col">
         <div class="footer-col-title">Angebot</div>
         <a href="trainings.html">Alle Trainings</a>
-        <a href="kurse.html">Offene Kurse</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title">Wissen</div>
